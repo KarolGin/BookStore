@@ -1,8 +1,9 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Background } from './components/Nav/Background/Background';
 import AddProduct from './pages/AddProduct/AddProduct';
+import EditBooks from './pages/EditBooks/EditBooks';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
     <Route path="/" element={<Background />} />
     <Route path="/add" element={<AddProduct />} />
-
+    <Route path ="edit" element={<EditBooks />} />
       
       </Routes>
 
