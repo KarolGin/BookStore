@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Background } from './components/Nav/Background/Background';
 import AddProduct from './pages/AddProduct/AddProduct';
