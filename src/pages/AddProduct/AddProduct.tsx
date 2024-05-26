@@ -1,12 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
+type Product = {
+  price: number;
+  title: string;
+  subtitle: string;
+};
+export const AddProduct = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [title, setTitle] = useState('');
+  const [subtitle, setSubtitle] = useState('');
+  const [price, setPrice] = useState("");
 
-export const addProduct = () => {
+  const addProduct = async () => {
+    try {
+      const res = await fetch("https://api.itbook.store/1.0/new", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: title,
+          subtitle: subtitle,
+          price: parseFloat(price)   // przemiana ceny na liczbe
+        }), 
+      })
+      if (!res.ok) throw new Error("cannot add new product!");
 
-
+      const newProduct = await res.json();
+      alert(`pomyslnie utworzono produkt ${newProduct.title}`);
+      setProducts((prev) => [...prev, newProduct]);
+      console.log(newProduct);
+    } catch (e) {
+      console.log(e);
+    }
+    
+  };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    addProduct();
+  };
+  
+  
   return (
     <>
     <h2>Dodaj nową książke</h2>
-    </>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label>Tytuł:</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Podtytuł:</label>
+        <input
+          type="text"
+          value={subtitle}
+          onChange={(e) => setSubtitle(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Cena:</label>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          required
+        />
+      </div>
+      <button type="submit">Dodaj Produkt</button>
+    </form>
+  </>
   );
 };  
-export default addProduct;
+export default AddProduct;
