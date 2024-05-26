@@ -7,6 +7,7 @@ import AddProduct from './pages/AddProduct/AddProduct';
 function App() {
   return (
     <div >
+      <h1>Hello World</h1>
       <Routes>
     <Route path="/" element={<Background />} />
     <Route path="/add" element={<AddProduct />} />
