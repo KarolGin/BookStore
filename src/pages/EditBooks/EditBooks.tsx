@@ -24,7 +24,7 @@ export type Book = {
 export const EditBooks = () => {
     const [book, setBook] = useState<Book>();
 
-    const fetchUsers = async () => {
+    const fetchBooks = async () => {
     try {
         const res = await fetch(`https://api.itbook.store/1.0/books/9781617294136`, {
       });
@@ -42,37 +42,38 @@ export const EditBooks = () => {
     }
 
     useEffect(() => {
-        fetchUsers();
+        fetchBooks();
     }, []);
 
     const handleEdit = (e: ChangeEvent<HTMLInputElement>) => {
         const {name, value} = e.target;
-
         setBook((prev) => prev && {...prev, [name]: value,}
     );
     };
 
-
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        fetchBooks();
+      };
     return (
         <>
+        <form onSubmit={handleSubmit}>
               {book ? (
                 <div>
-                    {/* <input value={book.title} name="title" onChange={handleEdit}></input>
-                    logika jest, ale do przerobienia */}
-                    <h1>{book.title}</h1>
-                    <h2>{book.subtitle}</h2>
-                    <p><strong>Authors:</strong> {book.authors}</p>
-                    <p><strong>Publisher:</strong> {book.publisher}</p>
-                    <p><strong>ISBN-10:</strong> {book.isbn10}</p>
-                    <p><strong>ISBN-13:</strong> {book.isbn13}</p>
-                    <p><strong>Pages:</strong> {book.pages}</p>
-                    <p><strong>Year:</strong> {book.year}</p>
-                    <p><strong>Rating:</strong> {book.rating}</p>
-                    <p><strong>Description:</strong> {book.desc}</p>
-                    <p><strong>Price:</strong> {book.price}</p>
+                    <h1><strong>Title:</strong> <input value={book.title} name="title" onChange={handleEdit}></input></h1>
+                    <h2><strong>SubTitle:</strong> <input type="text" value={book.subtitle} name="subtitle" onChange={handleEdit}/></h2>
+                    <p><strong>Authors:</strong> <input type="text" value={book.authors} name="autors" onChange={handleEdit}/></p>
+                    <p><strong>Publisher:</strong> <input type="text" value={book.publisher} name="publisher" onChange={handleEdit}/></p>
+                    <p><strong>ISBN-10:</strong> <input type="text" value={book.isbn10} name="isbn10" onChange={handleEdit}/></p>
+                    <p><strong>ISBN-13:</strong> <input type="text" value={book.isbn13} name="isbn13" onChange={handleEdit}/></p>
+                    <p><strong>Pages:</strong> <input type="text" value={book.pages} name="pages" onChange={handleEdit}/></p>
+                    <p><strong>Year:</strong> <input type="text" value={book.year} name="year" onChange={handleEdit}/></p>
+                    <p><strong>Rating:</strong> <input type="text" value={book.rating} name="rating" onChange={handleEdit}/></p>
+                    <p><strong>Description:</strong> <input type="text" value={book.desc} name="desc" onChange={handleEdit}/></p>
+                    <p><strong>Price:</strong> <input type="text" value={book.price} name="price" onChange={handleEdit}/></p>
                     <p><strong>Image URL:</strong> <a href={book.image} target="_blank" rel="noopener noreferrer">{book.image}</a></p>
                     <p><strong>Book URL:</strong> <a href={book.url} target="_blank" rel="noopener noreferrer">{book.url}</a></p>
-                    <div>
+                <div>
                         <h3>PDF Chapters:</h3>
                         <ul>
                             {Object.entries(book.pdf).map(([chapter, url]) => (
@@ -86,6 +87,10 @@ export const EditBooks = () => {
             ) : (
                 <p>Loading...</p>
             )}
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
         </>
     );
 }
