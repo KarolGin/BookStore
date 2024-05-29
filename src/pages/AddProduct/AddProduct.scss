@@ -1,0 +1,40 @@
+body{
+    background-image: url("https://wyprawy.net/images/slider/cache/b89896a524b065c56578dc0005171d51/wyprawy-w-gory-22-02-2022.jpg");
+    background-color: #cccccc;
+    
+}
+.add-new-book-text {
+    font-size: 40px;
+}
+.main-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.input-container{
+    padding: 5px;
+}
+.add-new-book-button{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+@media screen and (min-width: 480px) {
+    body{
+        background-image: url("https://i.pinimg.com/originals/94/ee/62/94ee62a358b199c2fdfdc3afd02ce760.jpg");
+        background-color: #cccccc;
+         
+    }
+    .add-new-book-text {
+    font-size: 55px;
+    color: #BFD4EF;
+    }
+    .input-container{
+        font-size: 25px;
+        color: #BFD4EF;
+    }
+    .add-new-book-button{
+        height: 40px;        
+    }
+}
