@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+body {
+    background-color: #cccccc;
+    
+}
+
+* {
+    font-family: "Montserrat", sans-serif;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+.inputs {
+    width: 150px;
+    text-align: center;
+}
+
+strong {
+    font-size: 19px;
+}
+
+.input-title, .input-subtitle, .input-authors, .input-publisher, .input-isbn10, .input-isbn13 {
+    border-radius: 8px;
+    line-height: 30px;
+    border-style:ridge;
+    border-width: 1px;
+    width: 200px;
+    font-size: 16px;
+    
+}
+
+.button-submit {
+    border-radius: 8px;
+    border-style: none;
+    border-color: grey;
+    background-color: #abbacb;
+    line-height: 30px;
+    width: 175px;
+    margin-left: 55px;
+}
+

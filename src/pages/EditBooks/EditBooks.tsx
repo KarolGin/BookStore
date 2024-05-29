@@ -1,33 +1,23 @@
-import {ChangeEvent, PropsWithChildren, useEffect, useState } from "react";
+import "./EditBook.scss"
+import {ChangeEvent, useEffect, useState } from "react";
 
 export type Book = {
-    error: number;
     title: string;
     subtitle: string;
     authors: string;
     publisher: string;
-    isbn10: number;
-    isbn13: number;
-    pages: number;
-    year: number
-    rating: number
-    desc: string;
-    price: string
-    image: string;
-    url: string;
-    pdf: {
-              "Chapter 2": "https://itbook.store/files/9781617294136/chapter2.pdf",
-              "Chapter 5": "https://itbook.store/files/9781617294136/chapter5.pdf"
-           }
+    isbn10: string;
+    isbn13: string;
 }
 
 export const EditBooks = () => {
     const [book, setBook] = useState<Book>();
-
+    const [error, setError] = useState(" ")
     const fetchBooks = async () => {
     try {
         const res = await fetch(`https://api.itbook.store/1.0/books/9781617294136`, {
-      });
+            method: "GET",
+        });
         if(!res.ok){
         throw new Error(`Something goes wrong`);
     } 
@@ -37,7 +27,8 @@ export const EditBooks = () => {
             setBook(dataBook);
         }
     } catch (error) {
-        console.error(`Error fetching users:`, error);
+        setError('Error fetching book details');
+        console.error('Error fetching users:', error);
     }
     }
 
@@ -45,53 +36,73 @@ export const EditBooks = () => {
         fetchBooks();
     }, []);
 
-    const handleEdit = (e: ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target;
-        setBook((prev) => prev && {...prev, [name]: value,}
-    );
-    };
+      const handleEdit = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setBook((prev) => {
+          if (prev) {
+            const updatedBook = { ...prev, [name]: value };
+            return updatedBook;
+          }
+          return prev;
+        });
+      };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        fetchBooks();
+        alert('Book was updated');
       };
+
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form">
               {book ? (
-                <div>
-                    <h1><strong>Title:</strong> <input value={book.title} name="title" onChange={handleEdit}></input></h1>
-                    <h2><strong>SubTitle:</strong> <input type="text" value={book.subtitle} name="subtitle" onChange={handleEdit}/></h2>
-                    <p><strong>Authors:</strong> <input type="text" value={book.authors} name="autors" onChange={handleEdit}/></p>
-                    <p><strong>Publisher:</strong> <input type="text" value={book.publisher} name="publisher" onChange={handleEdit}/></p>
-                    <p><strong>ISBN-10:</strong> <input type="text" value={book.isbn10} name="isbn10" onChange={handleEdit}/></p>
-                    <p><strong>ISBN-13:</strong> <input type="text" value={book.isbn13} name="isbn13" onChange={handleEdit}/></p>
-                    <p><strong>Pages:</strong> <input type="text" value={book.pages} name="pages" onChange={handleEdit}/></p>
-                    <p><strong>Year:</strong> <input type="text" value={book.year} name="year" onChange={handleEdit}/></p>
-                    <p><strong>Rating:</strong> <input type="text" value={book.rating} name="rating" onChange={handleEdit}/></p>
-                    <p><strong>Description:</strong> <input type="text" value={book.desc} name="desc" onChange={handleEdit}/></p>
-                    <p><strong>Price:</strong> <input type="text" value={book.price} name="price" onChange={handleEdit}/></p>
-                    <p><strong>Image URL:</strong> <a href={book.image} target="_blank" rel="noopener noreferrer">{book.image}</a></p>
-                    <p><strong>Book URL:</strong> <a href={book.url} target="_blank" rel="noopener noreferrer">{book.url}</a></p>
-                <div>
-                        <h3>PDF Chapters:</h3>
-                        <ul>
-                            {Object.entries(book.pdf).map(([chapter, url]) => (
-                                <li key={chapter}>
-                                    <a href={url} target="_blank" rel="noopener noreferrer">{chapter}</a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+                <div className="inputs">
+                    <label htmlFor="input-title">
+                        <p><strong>Title:</strong> 
+                        <input className="input-title" value={book.title} name="title" onChange={handleEdit}></input></p>
+                    </label>
+                    <label htmlFor="input-subtitle">
+                        <p><strong>SubTitle:</strong>
+                        <input className="input-subtitle" type="text" value={book.subtitle} name="subtitle" onChange={handleEdit}/></p>
+                    </label>
+                    <label htmlFor="input-authors">
+                        <p><strong>Authors:</strong>
+                        <input className="input-authors" type="text" value={book.authors} name="authors" onChange={handleEdit}/></p>
+                    </label>
+                    <label htmlFor="input-publisher">
+                        <p><strong>Publisher:</strong>
+                        <input className="input-publisher" type="text" value={book.publisher} name="publisher" onChange={handleEdit}/></p>
+                    </label>
+                    <label htmlFor="">
+                        <p><strong>ISBN-10:</strong>
+                        <input className="input-isbn10" type="text" value={book.isbn10} name="isbn10" onChange={handleEdit}/></p>
+                    </label>
+                    <label htmlFor="input-isbn13">
+                        <p><strong>ISBN-13:</strong>
+                        <input className="input-isbn13" type="text" value={book.isbn13} name="isbn13" onChange={handleEdit}/></p>
+                    </label>    
+                    
                 </div>
             ) : (
-                <p>Loading...</p>
+                error ? <p>{error}</p> : <p>Loading...</p>
             )}
                 <div>
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="button-submit">Submit</button>
                 </div>
             </form>
-        </>
+            {book && (
+        <div className="updated-details">
+          <h2>Updated Book Details</h2>
+          <p><strong>Title:</strong> {book.title}</p>
+          <p><strong>SubTitle:</strong> {book.subtitle}</p>
+          <p><strong>Authors:</strong> {book.authors}</p>
+          <p><strong>Publisher:</strong> {book.publisher}</p>
+          <p><strong>ISBN-10:</strong> {book.isbn10}</p>
+          <p><strong>ISBN-13:</strong> {book.isbn13}</p>
+        </div>
+        )}
+        </>    
     );
 }
 export default EditBooks;
+
