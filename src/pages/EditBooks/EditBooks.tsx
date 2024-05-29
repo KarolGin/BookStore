@@ -6,12 +6,13 @@ export type Book = {
     subtitle: string;
     authors: string;
     publisher: string;
-    isbn10: number;
-    isbn13: number;
+    isbn10: string;
+    isbn13: string;
 }
 
 export const EditBooks = () => {
     const [book, setBook] = useState<Book>();
+    const [error, setError] = useState(" ")
     const fetchBooks = async () => {
     try {
         const res = await fetch(`https://api.itbook.store/1.0/books/9781617294136`, {
@@ -26,7 +27,8 @@ export const EditBooks = () => {
             setBook(dataBook);
         }
     } catch (error) {
-        console.error(`Error fetching users:`, error);
+        setError('Error fetching book details');
+        console.error('Error fetching users:', error);
     }
     }
 
@@ -34,18 +36,22 @@ export const EditBooks = () => {
         fetchBooks();
     }, []);
 
-    const handleEdit = (e: ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target;
-        setBook((prev) => prev && {...prev, [name]: value,}
-    );
-    };
+      const handleEdit = (e: ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setBook((prev) => {
+          if (prev) {
+            const updatedBook = { ...prev, [name]: value };
+            return updatedBook;
+          }
+          return prev;
+        });
+      };
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        fetchBooks();
+        alert('Book was updated');
       };
 
-      
     return (
         <>
         <form onSubmit={handleSubmit} className="form">
@@ -61,7 +67,7 @@ export const EditBooks = () => {
                     </label>
                     <label htmlFor="input-authors">
                         <p><strong>Authors:</strong>
-                        <input className="input-authors" type="text" value={book.authors} name="autors" onChange={handleEdit}/></p>
+                        <input className="input-authors" type="text" value={book.authors} name="authors" onChange={handleEdit}/></p>
                     </label>
                     <label htmlFor="input-publisher">
                         <p><strong>Publisher:</strong>
@@ -78,13 +84,25 @@ export const EditBooks = () => {
                     
                 </div>
             ) : (
-                <p>Loading...</p>
+                error ? <p>{error}</p> : <p>Loading...</p>
             )}
                 <div>
                     <button type="submit" className="button-submit">Submit</button>
                 </div>
             </form>
-        </>
+            {book && (
+        <div className="updated-details">
+          <h2>Updated Book Details</h2>
+          <p><strong>Title:</strong> {book.title}</p>
+          <p><strong>SubTitle:</strong> {book.subtitle}</p>
+          <p><strong>Authors:</strong> {book.authors}</p>
+          <p><strong>Publisher:</strong> {book.publisher}</p>
+          <p><strong>ISBN-10:</strong> {book.isbn10}</p>
+          <p><strong>ISBN-13:</strong> {book.isbn13}</p>
+        </div>
+        )}
+        </>    
     );
 }
 export default EditBooks;
+
