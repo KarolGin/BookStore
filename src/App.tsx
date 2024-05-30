@@ -6,6 +6,7 @@ import AddProduct from './pages/AddProduct/AddProduct';
 import EditBooks from './pages/EditBooks/EditBooks';
 import { SearchInput } from './pages/SearchInput/searchInput';
 
+
 function App() {
   return (
     <div >
@@ -14,7 +15,6 @@ function App() {
     <Route path="/" element={<Background />} />
     <Route path="/add" element={<AddProduct />} />
     <Route path ="edit" element={<EditBooks />} />
-    <Route path = "search" element ={<SearchInput />} />  
       </Routes>
 
     </div>
