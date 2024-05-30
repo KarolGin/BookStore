@@ -46,3 +46,12 @@ strong {
     margin-left: 55px;
 }
 
+@media only screen and (max-width: 425px) {
+    .updated-details{
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-left: 90px;
+    }
+}
