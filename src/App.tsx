@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Background } from './components/Nav/Background/Background';
 import AddProduct from './pages/AddProduct/AddProduct';
 import EditBooks from './pages/EditBooks/EditBooks';
+import { SearchInput } from './pages/SearchInput/searchInput';
 
 
 function App() {
@@ -14,7 +15,6 @@ function App() {
     <Route path="/" element={<Background />} />
     <Route path="/add" element={<AddProduct />} />
     <Route path ="edit" element={<EditBooks />} />
-     
       </Routes>
 
     </div>
