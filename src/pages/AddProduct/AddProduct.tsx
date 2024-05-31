@@ -29,6 +29,7 @@ export const AddProduct = () => {
       console.log(newProduct);
 
       setProducts((prevProducts) => [...prevProducts, newProduct]);
+      clearForm();
     } catch (e) {
       console.log(e);
     }
@@ -37,6 +38,12 @@ export const AddProduct = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     addProduct();
+  };
+
+  const clearForm = () => {
+    setTitle('');
+    setSubtitle('');
+    setPrice('');
   };
   
   
@@ -76,6 +83,19 @@ export const AddProduct = () => {
   <button className="submit-button" type="submit">Dodaj Produkt</button>
   </span>
     </form>
+    <div className="preview-new-book">
+      <h2>Podgląd nowej książki</h2>
+      <span>
+        <strong>Tytuł:</strong> {title}
+        <br />
+        <strong>Podtytuł:</strong> {subtitle}
+        <br />
+        <strong>Cena:</strong> {price}
+        <br />
+        <strong>Data dodania:</strong> {new Date().toLocaleString()}
+        
+      </span>
+    </div>
   </div>
   </>
   );
