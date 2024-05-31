@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import "./searchInput.scss"
+
 
 export type SearchTag = {
     title: string;
@@ -48,20 +50,28 @@ export const SearchInput = () => {
     
     return (
         <>
+            <form className="search">
             <label htmlFor="search-input">
-                <input value={query} type="text" placeholder="Search" className="search-input" onChange={ (e) => setQuery(e.target.value)} />
+                <input value={query} type="text" placeholder="Search..." className="search-input" onChange={ (e) => setQuery(e.target.value)}/>
+                
             </label>
-
+            </form>
              {error && <p>{error}</p>}
-            <ul>
-                {resultList.map((book, index) => (
-                    <li key={index}>
-                        {book.title} - {book.subtitle}
-                    </li>
-                ))}
-            </ul>
+             <ul>
+                {resultList.map((book, index) => {
+                    return (
+                       <li key={index} className="dropdown-item" 
+                       >
+                        {book.title}
+                       </li>
+                       
+                    );
+                })}
+                </ul>
         </>
     )
 }
+
+export default SearchInput
 
 
