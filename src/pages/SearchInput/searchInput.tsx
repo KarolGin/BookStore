@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react"
-import "./searchInput.scss"
-
+import { useEffect, useState } from "react";
+import "./searchInput.scss";
 
 export type SearchTag = {
     title: string;
@@ -12,6 +11,7 @@ export const SearchInput = () => {
     const [books, setBooks] = useState<SearchTag[]>([]);
     const [error, setError] = useState("");
     const [resultList, setResultList] = useState<SearchTag[]>([]);
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const fetchBooks = async () => {
         try {
@@ -43,35 +43,47 @@ export const SearchInput = () => {
                     book.subtitle.toLowerCase().includes(query.toLowerCase())
             );
             setResultList(results);
+            setShowDropdown(true);
         } else {
-            setResultList(books);
+            setResultList([]);
+            setShowDropdown(false);
         }
     }, [query, books]);
-    
+
+    const handleSelect = (title: string) => {
+        setQuery(title);
+        setShowDropdown(false);
+    };
+
     return (
         <>
             <form className="search">
-            <label htmlFor="search-input">
-                <input value={query} type="text" placeholder="Search..." className="search-input" onChange={ (e) => setQuery(e.target.value)}/>
-                
-            </label>
+                <label htmlFor="search-input">
+                    <input
+                        value={query}
+                        type="text"
+                        placeholder="Search..."
+                        className="search-input"
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                </label>
             </form>
-             {error && <p>{error}</p>}
-             <ul>
-                {resultList.map((book, index) => {
-                    return (
-                       <li key={index} className="dropdown-item" 
-                       >
-                        {book.title}
-                       </li>
-                       
-                    );
-                })}
+            {error && <p>{error}</p>}
+            {showDropdown && (
+                <ul className="dropdown">
+                    {resultList.map((book, index) => (
+                        <li
+                            key={index}
+                            className="dropdown-item"
+                            onClick={() => handleSelect(book.title)}
+                        >
+                            {book.title}
+                        </li>
+                    ))}
                 </ul>
+            )}
         </>
-    )
-}
+    );
+};
 
-export default SearchInput
-
-
+export default SearchInput;
