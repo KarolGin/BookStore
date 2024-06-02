@@ -57,6 +57,7 @@ export const SearchInput = () => {
 
     return (
         <>
+        <div className="search-container">
             <form className="search">
                 <label htmlFor="search-input">
                     <input
@@ -65,6 +66,7 @@ export const SearchInput = () => {
                         placeholder="Search..."
                         className="search-input"
                         onChange={(e) => setQuery(e.target.value)}
+                        
                     />
                 </label>
             </form>
@@ -82,6 +84,7 @@ export const SearchInput = () => {
                     ))}
                 </ul>
             )}
+            </div>
         </>
     );
 };
