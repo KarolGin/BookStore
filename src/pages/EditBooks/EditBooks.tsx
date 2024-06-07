@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import "./EditBook.scss"
 import {ChangeEvent, useEffect, useState } from "react";
 
@@ -49,7 +50,7 @@ export const EditBooks = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        alert('Book was updated');
+        alert(`Book was updated`);
       };
 
     return (
@@ -73,7 +74,7 @@ export const EditBooks = () => {
                         <p><strong>Publisher:</strong>
                         <input className="input-publisher" type="text" value={book.publisher} name="publisher" onChange={handleEdit}/></p>
                     </label>
-                    <label htmlFor="">
+                    <label htmlFor="input-isbn10">
                         <p><strong>ISBN-10:</strong>
                         <input className="input-isbn10" type="text" value={book.isbn10} name="isbn10" onChange={handleEdit}/></p>
                     </label>
@@ -87,12 +88,12 @@ export const EditBooks = () => {
                 error ? <p>{error}</p> : <p>Loading...</p>
             )}
                 <div>
-                    <button type="submit" className="button-submit">Submit</button>
+                    <button type="submit" className="button-submit">{t (`Submit`)}</button>
                 </div>
             </form>
             {book && (
         <div className="updated-details">
-          <h2>Updated Book Details</h2>
+          <h2>{t (`Updated Book Details`)}</h2>
           <p><strong>Title:</strong> {book.title}</p>
           <p><strong>SubTitle:</strong> {book.subtitle}</p>
           <p><strong>Authors:</strong> {book.authors}</p>
