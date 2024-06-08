@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import "./EditBook.scss"
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -55,94 +56,7 @@ export const EditBooks = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        alert("Book was updated");
-    };
 
-    return (
-        <>
-            <form onSubmit={handleSubmit} className="form">
-                {book ? (
-                    <div className="inputs">
-                        <label htmlFor="input-title">
-                            <p>
-                                <strong>Title:</strong>
-                                <input
-                                    className="input-title"
-                                    value={book.title}
-                                    name="title"
-                                    onChange={handleEdit}
-                                />
-                            </p>
-                        </label>
-                        <label htmlFor="input-authors">
-                            <p>
-                                <strong>Authors:</strong>
-                                <input
-                                    className="input-authors"
-                                    type="text"
-                                    value={book.authors ? book.authors.join(", ") : ""}
-                                    name="authors"
-                                    onChange={handleEdit}
-                                />
-                            </p>
-                        </label>
-                        <label htmlFor="input-pageCount">
-                            <p>
-                                <strong>Page Count:</strong>
-                                <input
-                                    className="input-pageCount"
-                                    type="text"
-                                    value={book.pageCount}
-                                    name="pageCount"
-                                    onChange={handleEdit}
-                                />
-                            </p>
-                        </label>
-                        <label htmlFor="input-isbn">
-                            <p>
-                                <strong>ISBN:</strong>
-                                <input
-                                    className="input-isbn"
-                                    type="text"
-                                    value={book.isbn}
-                                    name="isbn"
-                                    onChange={handleEdit}
-                                />
-                            </p>
-                        </label>
-                        <label htmlFor="input-id">
-                            <p>
-                                <strong>ID:</strong>
-                                <input
-                                    className="input-id"
-                                    type="text"
-                                    value={book.id}
-                                    name="id"
-                                    onChange={handleEdit}
-                                />
-                            </p>
-                        </label>
-                    </div>
-                ) : (
-                    error ? <p>{error}</p> : <p>Loading...</p>
-                )}
-                <div>
-                    <button type="submit" className="button-submit">
-                        Submit
-                    </button>
-                </div>
-            </form>
-            {book && (
-                <div className="updated-details">
-                    <h2>Updated Book Details</h2>
-                    <p><strong>Title:</strong> {book.title}</p>
-                    <p><strong>Authors:</strong> {book.authors ? book.authors.join(", ") : "N/A"}</p>
-                    <p><strong>Page Count:</strong> {book.pageCount}</p>
-                    <p><strong>ISBN:</strong> {book.isbn}</p>
-                    <p><strong>ID:</strong> {book.id}</p>
-                </div>
-            )}
-        </>
     );
 };
 
