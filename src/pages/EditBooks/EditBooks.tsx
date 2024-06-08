@@ -64,7 +64,6 @@ export const EditBooks = () => {
                 {book ? (
                     <div className="inputs">
                         <label htmlFor="input-title">
-                            <p>
                                 <strong>Title:</strong>
                                 <input
                                     className="input-title"
@@ -72,10 +71,8 @@ export const EditBooks = () => {
                                     name="title"
                                     onChange={handleEdit}
                                 />
-                            </p>
                         </label>
                         <label htmlFor="input-authors">
-                            <p>
                                 <strong>Authors:</strong>
                                 <input
                                     className="input-authors"
@@ -84,10 +81,8 @@ export const EditBooks = () => {
                                     name="authors"
                                     onChange={handleEdit}
                                 />
-                            </p>
                         </label>
                         <label htmlFor="input-pageCount">
-                            <p>
                                 <strong>Page Count:</strong>
                                 <input
                                     className="input-pageCount"
@@ -96,10 +91,8 @@ export const EditBooks = () => {
                                     name="pageCount"
                                     onChange={handleEdit}
                                 />
-                            </p>
                         </label>
                         <label htmlFor="input-isbn">
-                            <p>
                                 <strong>ISBN:</strong>
                                 <input
                                     className="input-isbn"
@@ -108,10 +101,8 @@ export const EditBooks = () => {
                                     name="isbn"
                                     onChange={handleEdit}
                                 />
-                            </p>
                         </label>
                         <label htmlFor="input-id">
-                            <p>
                                 <strong>ID:</strong>
                                 <input
                                     className="input-id"
@@ -120,7 +111,6 @@ export const EditBooks = () => {
                                     name="id"
                                     onChange={handleEdit}
                                 />
-                            </p>
                         </label>
                     </div>
                 ) : (
