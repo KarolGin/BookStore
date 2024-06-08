@@ -3,7 +3,7 @@ import "./searchInput.scss";
 
 export type SearchTag = {
     title: string;
-    subtitle: string;
+    authors: string[];
 };
 
 export const SearchInput = () => {
@@ -15,15 +15,20 @@ export const SearchInput = () => {
 
     const fetchBooks = async () => {
         try {
-            const res = await fetch(`https://api.itbook.store/1.0/search/mongodb`, {
+            const res = await fetch(`https://fakeapi.extendsclass.com/books`, {
                 method: "GET",
             });
             if (!res.ok) {
                 throw new Error("Something went wrong");
             }
             const dataBook = await res.json();
-            if (dataBook && dataBook.books) {
-                setBooks(dataBook.books);
+            console.log("Fetched books data:", dataBook);
+            if (Array.isArray(dataBook)) {
+                setBooks(dataBook);
+                console.log("Books state updated:", dataBook);
+            } else {
+                console.error("Books data is not an array:", dataBook);
+                setError("Invalid data format from API");
             }
         } catch (error) {
             setError("Error fetching book details");
@@ -40,8 +45,9 @@ export const SearchInput = () => {
             const results = books.filter(
                 book =>
                     book.title.toLowerCase().includes(query.toLowerCase()) ||
-                    book.subtitle.toLowerCase().includes(query.toLowerCase())
+                    book.authors.join(", ").toLowerCase().includes(query.toLowerCase())
             );
+            console.log("Filtered results:", results);
             setResultList(results);
             setShowDropdown(true);
         } else {
@@ -63,10 +69,9 @@ export const SearchInput = () => {
                     <input
                         value={query}
                         type="text"
-                        placeholder="Search..."
+                        placeholder="🔎 Search..."
                         className="search-input"
                         onChange={(e) => setQuery(e.target.value)}
-                        
                     />
                 </label>
             </form>
