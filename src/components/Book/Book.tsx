@@ -7,8 +7,10 @@ export const Book = ({id, title, isbn, authors}: BookType) => {
     <div className="book">
       <img className="image" src="./book-cover-placeholder.png" alt={title}></img>
       <div className="title">{title}</div>
+      <ul className="authors">
       {authors &&
-        authors.map((author) => <div className="author">{author}</div>)}
+        authors.map((author) => <li className="author">{author}</li>)}
+      </ul>
       <div className="ISBN">IBSN: {isbn}</div>
     </div>
   );
