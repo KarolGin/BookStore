@@ -63,7 +63,7 @@ export const SearchInput = () => {
                     <input
                         value={query}
                         type="text"
-                        placeholder={t("Search...")}
+                        placeholder={t("Search")}
                         className="search-input"
                         onChange={(e) => setQuery(e.target.value)}
                     />
