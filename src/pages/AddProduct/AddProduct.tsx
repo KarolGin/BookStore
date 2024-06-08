@@ -20,9 +20,9 @@ export const AddProduct = () => {
          },
 
         body: JSON.stringify({
-          title: title,
-          isbn: isbn,
-          pageCount: parseFloat(pageCount)   // przemiana ceny na liczbe
+          title,
+          isbn,
+          pageCount   // przemiana ceny na liczbe
         }), 
       })
       if (!res.ok) throw new Error("cannot add new product!");
