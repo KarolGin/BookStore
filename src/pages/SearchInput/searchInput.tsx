@@ -65,14 +65,15 @@ export const SearchInput = () => {
         <>
         <div className="search-container">
             <form className="search">
-                <label htmlFor="search-input">
+                <label htmlFor="search-input" className="search-label">
                     <input
                         value={query}
                         type="text"
-                        placeholder="🔎 Search..."
+                        placeholder="Search..."
                         className="search-input"
                         onChange={(e) => setQuery(e.target.value)}
                     />
+                    <span className="search-icon">🔎</span>
                 </label>
             </form>
             {error && <p>{error}</p>}
