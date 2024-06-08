@@ -8,6 +8,6 @@ export default {
     "refresh page":"odswiez strone",
     "Updated Book Details": "Zaktualizowane szczegóły książki",
     "Submit": "Wysli",
-    
+    "Search" : "Wyszukaj",
 },
 };

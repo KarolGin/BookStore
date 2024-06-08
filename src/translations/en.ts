@@ -7,6 +7,6 @@ export default {
     "refresh page":"refresh page",
     "Updated Book Details": "Updated Book Details",
     "Submit": "Submit",
-    
+    "Search" : "Search",
 },
 };
