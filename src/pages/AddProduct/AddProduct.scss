@@ -1,21 +1,20 @@
 .main-container{
-    background-image: url("https://wyprawy.net/images/slider/cache/b89896a524b065c56578dc0005171d51/wyprawy-w-gory-22-02-2022.jpg");
-    background-color: #cccccc;
-    position: fixed;
+    background-color: #F5F5F5;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
 }
-.add-new-book-text {
-    font-size: 40px;
-}
 .main-container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+}    
+
+.add-new-book-text {
+    font-size: 40px;
 }
+
 .input-container{
     padding: 5px;
 }
@@ -27,26 +26,37 @@
 @media screen and (min-width: 480px) {
 
     .main-container{
-    background-image: url("https://i.pinimg.com/originals/94/ee/62/94ee62a358b199c2fdfdc3afd02ce760.jpg");
-    background-color: #cccccc;
+    background-color: #F5F5F5;
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
     height: 100%;
     }
+    .container-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #b2d0f3;
+        border-radius: 10%;
+        margin: 30px;
+        border-width:2px;
+        border-style:solid;
+        border-color:#2C52AA;    }
     .add-new-book-text {
     font-size: 55px;
-    color: #BFD4EF;
+    color: #2C52AA;
+    padding: 25px  ;
     }
     .input-container{
         font-size: 25px;
-        color: #BFD4EF;
+        color: 	#2C52AA;
     }
     .add-new-book-button{
         height: 40px;        
     }
     .preview-new-book{
         padding-top: 50px;
+        padding-bottom: 20px;
     }
 }

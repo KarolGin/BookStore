@@ -1,25 +1,28 @@
 import "./AddProduct.scss"
 import React, { useState } from "react";
+import logo from "./images/books.png";
 type Product = {
-  price: number;
   title: string;
-  subtitle: string;
+  isbn: string;
+  pageCount: number;
 };
 export const AddProduct = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [title, setTitle] = useState('');
-  const [subtitle, setSubtitle] = useState('');
-  const [price, setPrice] = useState("");
+  const [isbn, setIsbn] = useState('');
+  const [pageCount, setPageCount] = useState("");
 
   const addProduct = async () => {
     try {
-      const res = await fetch("https://api.itbook.store/1.0/new", {
+      const res = await fetch("https://fakeapi.extendsclass.com/books", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+         },
+
         body: JSON.stringify({
           title: title,
-          subtitle: subtitle,
-          price: parseFloat(price)   // przemiana ceny na liczbe
+          isbn: isbn,
+          pageCount: parseFloat(pageCount)   // przemiana ceny na liczbe
         }), 
       })
       if (!res.ok) throw new Error("cannot add new product!");
@@ -42,14 +45,17 @@ export const AddProduct = () => {
 
   const clearForm = () => {
     setTitle('');
-    setSubtitle('');
-    setPrice('');
+    setIsbn('');
+    setPageCount('');
   };
   
   
   return (
     <>
+
     <div className="main-container">
+    <img src= { logo } alt="Logo strony" />
+     <span className="container-form">
     <h2 className="add-new-book-text" >Dodaj nową książke</h2>
     <form onSubmit={handleSubmit}>
       <div className="input-container">
@@ -62,20 +68,20 @@ export const AddProduct = () => {
         />
       </div>
       <div className="input-container">
-        <label><strong>Podtytuł:</strong></label>
+        <label><strong>Isbn:</strong></label>
         <input
           type="text"
-          value={subtitle}
-          onChange={(e) => setSubtitle(e.target.value)}
+          value={isbn}
+          onChange={(e) => setIsbn(e.target.value)}
           required
         />
       </div>
       <div className="input-container">
-        <label><strong>Cena:</strong></label>
+        <label><strong>Strony:</strong></label>
         <input
           type="number"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          value={pageCount}
+          onChange={(e) => setPageCount(e.target.value)}
           required
         />
       </div>
@@ -88,14 +94,14 @@ export const AddProduct = () => {
       <span>
         <strong>Tytuł:</strong> {title}
         <br />
-        <strong>Podtytuł:</strong> {subtitle}
+        <strong>Isbn:</strong> {isbn}
         <br />
-        <strong>Cena:</strong> {price}
+        <strong>Liczna stron:</strong> {pageCount}
         <br />
         <strong>Data dodania:</strong> {new Date().toLocaleString()}
-        
       </span>
     </div>
+    </span>
   </div>
   </>
   );
