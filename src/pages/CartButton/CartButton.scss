@@ -13,10 +13,14 @@
     line-height: 30px;
     width: 170px;
     margin-left: 70%;
+    display: flex;
+    align-items: center;
   }
 
 .shopping-cart {
     margin-left: 35px; 
+    width: 23px; 
+    height: 23px;
     
 }
 .cart-button:hover::after, .cart-button:focus::after {
