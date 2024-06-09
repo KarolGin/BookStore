@@ -12,7 +12,6 @@ import i18n from "./i18";
 import { BookList } from "./components/BookList/BookList";
 import { BookDetails } from "./components/BookDetails/BookDetails";
 
-
 function App() {
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage("language", "pl");
