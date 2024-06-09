@@ -1,4 +1,3 @@
-// src/components/BookDetails/BookDetails.tsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BookType } from "../BookList/BookList";
@@ -13,20 +12,20 @@ export const BookDetails: React.FC = () => {
   const { id } = useParams<Params>();
   const [book, setBook] = useState<BookType | null>(null);
 
-  useEffect(() => {
-    const fetchBookDetails = async () => {
-      try {
-        const res = await fetch(`https://fakeapi.extendsclass.com/books/${id}`);
-        if (!res.ok) {
-          throw new Error("Something went wrong");
-        }
-        const data = await res.json();
-        setBook(data);
-      } catch (error) {
-        console.error("Error fetching book details:", error);
+  const fetchBookDetails = async () => {
+    try {
+      const res = await fetch(`https://fakeapi.extendsclass.com/books/${id}`);
+      if (!res.ok) {
+        throw new Error("Something went wrong");
       }
-    };
+      const data = await res.json();
+      setBook(data);
+    } catch (error) {
+      console.error("Error fetching book details:", error);
+    }
+  };
 
+  useEffect(() => {
     fetchBookDetails();
   }, [id]);
 
