@@ -1,12 +1,109 @@
-import React from "react";
+import "./AddProduct.scss"
+import React, { useState } from "react";
+import logo from "./images/books.png";
+type Product = {
+  title: string;
+  isbn: string;
+  pageCount: number;
+};
+export const AddProduct = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [title, setTitle] = useState('');
+  const [isbn, setIsbn] = useState('');
+  const [pageCount, setPageCount] = useState("");
 
-export const addProduct = () => {
+  const addProduct = async () => {
+    try {
+      const res = await fetch("https://fakeapi.extendsclass.com/books", {
+        method: "POST",
+        headers: { "Content-Type": "application/json",
+         },
 
+        body: JSON.stringify({
+          title,
+          isbn,
+          pageCount   // przemiana ceny na liczbe
+        }), 
+      })
+      if (!res.ok) throw new Error("cannot add new product!");
 
+      const newProduct = await res.json();
+      alert(`pomyslnie utworzono produkt ${newProduct.title}`);
+      console.log(newProduct);
+
+      setProducts((prevProducts) => [...prevProducts, newProduct]);
+      clearForm();
+    } catch (e) {
+      console.log(e);
+    }
+    
+  };
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    addProduct();
+  };
+
+  const clearForm = () => {
+    setTitle('');
+    setIsbn('');
+    setPageCount('');
+  };
+  
+  
   return (
     <>
-    <h2>Dodaj nową książke</h2>
-    </>
+
+    <div className="main-container">
+    <img src= { logo } alt="Logo strony" />
+     <span className="container-form">
+    <h2 className="add-new-book-text" >Dodaj nową książke</h2>
+    <form onSubmit={handleSubmit}>
+      <div className="input-container">
+        <label><strong>Tytuł:</strong></label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+      </div>
+      <div className="input-container">
+        <label><strong>Isbn:</strong></label>
+        <input
+          type="text"
+          value={isbn}
+          onChange={(e) => setIsbn(e.target.value)}
+          required
+        />
+      </div>
+      <div className="input-container">
+        <label><strong>Strony:</strong></label>
+        <input
+          type="number"
+          value={pageCount}
+          onChange={(e) => setPageCount(e.target.value)}
+          required
+        />
+      </div>
+  <span className="add-new-book-button">
+  <button className="submit-button" type="submit">Dodaj Produkt</button>
+  </span>
+    </form>
+    <div className="preview-new-book">
+      <h2>Podgląd nowej książki</h2>
+      <span>
+        <strong>Tytuł:</strong> {title}
+        <br />
+        <strong>Isbn:</strong> {isbn}
+        <br />
+        <strong>Liczna stron:</strong> {pageCount}
+        <br />
+        <strong>Data dodania:</strong> {new Date().toLocaleString()}
+      </span>
+    </div>
+    </span>
+  </div>
+  </>
   );
 };  
-export default addProduct;
+export default AddProduct;

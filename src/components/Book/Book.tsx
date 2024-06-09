@@ -1,11 +1,12 @@
-// src/components/Book/Book.tsx
 import React from "react";
-import { BookType } from "../BookList/BookList";
 import "./Book.scss";
+import { BookType } from "../BookList/BookList";
+
 
 interface BookProps extends BookType {
   onShowDetails: () => void;
 }
+
 
 export const Book: React.FC<BookProps> = ({
   title,

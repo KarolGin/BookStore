@@ -3,6 +3,7 @@ import "./searchInput.scss";
 import { BookList } from "../../components/BookList/BookList";
 import { t } from "i18next";
 
+
 export type SearchTag = {
   title: string;
   authors: string[];
@@ -63,6 +64,7 @@ export const SearchInput = () => {
     setShowDropdown(false);
   };
 
+
   return (
     <>
       <div className="search-container">
@@ -96,6 +98,40 @@ export const SearchInput = () => {
       <BookList />
     </>
   );
+
+<!--     return (
+        <>
+        <div className="search-container">
+            <form className="search">
+                <label htmlFor="search-input" className="search-label">
+                    <input
+                        value={query}
+                        type="text"
+                        placeholder={t("Search")}
+                        className="search-input"
+                        onChange={(e) => setQuery(e.target.value)}
+                    />
+                    <span className="search-icon">🔎</span>
+                </label>
+            </form>
+            {error && <p>{error}</p>}
+            {showDropdown && (
+                <ul className="dropdown">
+                    {resultList.map((book, index) => (
+                        <li
+                            key={index}
+                            className="dropdown-item"
+                            onClick={() => handleSelect(book.title)}
+                        >
+                            {book.title}
+                        </li>
+                    ))}
+                </ul>
+            )}
+            </div>
+        </>
+    ); -->
+
 };
 
 export default SearchInput;
