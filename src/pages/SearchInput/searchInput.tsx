@@ -93,7 +93,6 @@ export const SearchInput = () => {
                 </ul>
             )}
             </div>
-            <BookList/>
         </>
     );
 };
