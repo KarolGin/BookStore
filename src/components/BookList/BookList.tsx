@@ -51,7 +51,7 @@ export const BookList = () => {
       <div className="counter">Liczba dostępnych pozycji:{books.length}</div>
       <BookSort setSortBy={setSortBy} />
       <div className="book-container">
-        {books &&
+        {books.length &&
           books
             .sort(compareBasedOnSortBy)
             .map((item) => <Book {...item}></Book>)}

@@ -10,15 +10,15 @@ export const BookSort = ({ setSortBy }: props) => {
       Sortuj po
       <ul className="sort-select">
         <li onClick={() => setSortBy("author")} className="sort-item">
-          <a>Autor</a>
+          <span>Autor</span>
           <img src="./arrow-down-a-z-svgrepo-com.svg" />
         </li>
         <li onClick={() => setSortBy("title")} className="sort-item">
-          <a>Tytuł</a>
+          <span>Tytuł</span>
           <img src="./arrow-down-a-z-svgrepo-com.svg" />
         </li>
         <li onClick={() => setSortBy("ISBN")} className="sort-item">
-          <a>ISBN</a>
+          <span>ISBN</span>
           <img src="./arrow-down-short-wide-svgrepo-com.svg" />
         </li>
       </ul>

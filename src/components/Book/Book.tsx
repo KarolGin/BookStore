@@ -11,7 +11,7 @@ export const Book = ({ id, title, isbn, authors }: BookType) => {
       ></img>
       <div className="title">{title}</div>
       <ul className="authors">
-        {authors &&
+        {authors.length &&
           authors.map((author, idx) => (
             <li key={idx} className="author">
               {author}
