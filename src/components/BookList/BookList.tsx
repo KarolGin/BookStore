@@ -16,6 +16,9 @@ export const BookList: React.FC = () => {
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("");
 
+=======
+<!--   const [sortBy, setSortBy] = useState(""); -->
+
   const fetchBooks = async () => {
     try {
       const res = await fetch("https://fakeapi.extendsclass.com/books", {
@@ -37,9 +40,9 @@ export const BookList: React.FC = () => {
     fetchBooks();
   }, []);
 
+
   const handleShowDetails = (bookId: string) => {
     navigate(`/bookdetails/${bookId}`);
-  };
 
   const compareBasedOnSortBy = (a: BookType, b: BookType) => {
     if (sortBy === "title") {

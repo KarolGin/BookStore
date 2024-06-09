@@ -2,9 +2,11 @@ import React from "react";
 import "./Book.scss";
 import { BookType } from "../BookList/BookList";
 
+
 interface BookProps extends BookType {
   onShowDetails: (id: string) => void;
 }
+
 
 export const Book: React.FC<BookProps> = ({
   id,

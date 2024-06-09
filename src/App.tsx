@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
@@ -40,9 +41,10 @@ function App() {
         <Route path="/add" element={<AddProduct />} />
         <Route path="edit" element={<EditBooks />} />
         <Route path="search" element={<SearchInput />} />
-        <Route path="cart" element={<CartBook />} />
+        <Route path="cart" element={<CartBook /> } />
         <Route path="/booklist" element={<BookList />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
+
       </Routes>
     </div>
   );
