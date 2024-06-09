@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+
 import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Background } from './components/Nav/Background/Background';
