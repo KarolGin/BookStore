@@ -1,4 +1,6 @@
+// src/components/BookList/BookList.tsx
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Book } from "../Book/Book";
 import "./BookList.scss";
 
@@ -11,6 +13,8 @@ export type BookType = {
 
 export const BookList = () => {
   const [books, setBooks] = useState<BookType[]>([]);
+  const navigate = useNavigate();
+
   const fetchBooks = async () => {
     try {
       const res = await fetch("https://fakeapi.extendsclass.com/books", {
@@ -32,12 +36,20 @@ export const BookList = () => {
     fetchBooks();
   }, []);
 
+  const handleShowDetails = (bookId: number) => {
+    navigate(`/bookdetails/${bookId}`);
+  };
+
   return (
     <>
-      <div className="counter">Liczba dostępnych pozycji:{books.length}</div>
+      <div className="counter">Liczba dostępnych pozycji: {books.length}</div>
       <div className="book-container">
         {books.map((item) => (
-          <Book {...item}></Book>
+          <Book
+            key={item.id}
+            {...item}
+            onShowDetails={() => handleShowDetails(item.id)}
+          />
         ))}
       </div>
     </>
