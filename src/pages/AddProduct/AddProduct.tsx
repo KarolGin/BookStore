@@ -1,12 +1,8 @@
 import "./AddProduct.scss";
 import React, { useState } from "react";
 import logo from "./images/books.png";
-<<<<<<< HEAD
 import { t } from "i18next";
 import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
-=======
-import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
->>>>>>> 5fad991 (Hamburger menu on addProduct)
 type Product = {
   title: string;
   isbn: string;

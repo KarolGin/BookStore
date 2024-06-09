@@ -4,7 +4,8 @@ import { Background } from "../Nav/Background/Background";
 import { MainNav } from "../Nav/MainNav/MainNav";
 export const MainPage = () => {
   return (
-    <div><Background />
+    <div>
+      <Background />
       <MainNav />
       <SearchInput />
       <BookList />
