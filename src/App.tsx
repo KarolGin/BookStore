@@ -11,6 +11,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import i18n from "./i18";
 import { BookList } from "./components/BookList/BookList";
 import { BookDetails } from "./components/BookDetails/BookDetails";
+import { CartBook } from "./pages/CartButton/CartButton";
 
 function App() {
   const { t } = useTranslation();
