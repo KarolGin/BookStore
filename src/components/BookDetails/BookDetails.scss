@@ -1,0 +1,36 @@
+.book-details {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #6ec9fd62;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+
+  h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 10px 0;
+
+    strong {
+      color: #000;
+    }
+  }
+
+  .loading,
+  .error,
+  .no-details {
+    font-size: 1.2rem;
+    color: #888;
+    text-align: center;
+    margin: 50px 0;
+  }
+}
