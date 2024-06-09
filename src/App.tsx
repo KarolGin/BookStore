@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { Background } from './components/Nav/Background/Background';
@@ -9,11 +9,10 @@ import { useTranslation } from 'react-i18next';
 import useLocalStorage from './hooks/useLocalStorage';
 import i18n from './i18';
 import { CartBook } from './pages/CartButton/CartButton';
-
+import { BasketBookContextProvider } from './pages/BasketBookContext/BasketBookContext';
 
 
 function App() {
-  
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage('language', 'pl');
 
@@ -37,6 +36,7 @@ function App() {
             <button className='reload' onClick={() => window.location.reload()}>
                 {t('refresh page')}
             </button>
+    <BasketBookContextProvider>           
       <Routes>
     <Route path="/" element={<Background />} />
     <Route path="/add" element={<AddProduct />} />
@@ -44,6 +44,7 @@ function App() {
     <Route path="search" element={<SearchInput /> } />
     <Route path="cart" element={<CartBook /> } />
       </Routes>
+      </BasketBookContextProvider> 
     </div>
   );
 }
