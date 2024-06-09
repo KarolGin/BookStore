@@ -8,6 +8,7 @@ import { SearchInput } from './pages/SearchInput/searchInput';
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from './hooks/useLocalStorage';
 import i18n from './i18';
+import { CartBook } from './pages/CartButton/CartButton';
 
 
 
@@ -41,6 +42,7 @@ function App() {
     <Route path="/add" element={<AddProduct />} />
     <Route path ="edit" element={<EditBooks />} />
     <Route path="search" element={<SearchInput /> } />
+    <Route path="cart" element={<CartBook /> } />
       </Routes>
     </div>
   );
