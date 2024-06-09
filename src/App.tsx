@@ -11,7 +11,6 @@ import i18n from './i18';
 import { CartBook } from './pages/CartButton/CartButton';
 
 
-
 function App() {
   
   const { t } = useTranslation();
