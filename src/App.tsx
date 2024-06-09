@@ -8,8 +8,9 @@ import { SearchInput } from "./pages/SearchInput/searchInput";
 import { useTranslation } from "react-i18next";
 import useLocalStorage from "./hooks/useLocalStorage";
 import i18n from "./i18";
-import { BookList } from "./components/BookList/BookList";
+import BookList from "./components/BookList/BookList";
 import { BookDetails } from "./components/BookDetails/BookDetails";
+import { CartBook } from "./pages/CartButton/CartButton";
 
 function App() {
   const { t } = useTranslation();
@@ -39,6 +40,7 @@ function App() {
         <Route path="/add" element={<AddProduct />} />
         <Route path="edit" element={<EditBooks />} />
         <Route path="search" element={<SearchInput />} />
+        <Route path="cart" element={<CartBook />} />
         <Route path="/booklist" element={<BookList />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
       </Routes>
