@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Book } from "../Book/Book";
 import "./BookList.scss";
+import { BookSort } from "../BookSort/BookSort";
 
 export type BookType = {
   id: string;

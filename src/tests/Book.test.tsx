@@ -4,7 +4,7 @@ import "@testing-library/jest-dom/extend-expect";
 import { BookType } from "../components/BookList/BookList";
 
 const mockBook: BookType = {
-  id: "1",
+  id: "1", // Ensure the id is a string
   title: "Test Book",
   isbn: 123456789,
   authors: ["Author 1", "Author 2"],

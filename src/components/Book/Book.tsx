@@ -1,7 +1,6 @@
-// src/components/Book/Book.tsx
 import React from "react";
-import { BookType } from "../BookList/BookList";
 import "./Book.scss";
+import { BookType } from "../BookList/BookList";
 
 interface BookProps extends BookType {
   onShowDetails: (id: string) => void;

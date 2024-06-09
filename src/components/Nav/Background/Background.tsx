@@ -1,10 +1,17 @@
-import React from'react';
+import React from 'react';
+import './Background.scss'; // Importowanie pliku SCSS
+import logo from './logo.png'; // Tell webpack this JS file uses this image
 
 
-export const Background = () => {
+
+export const Background: React.FC = () => {
   return (
-    <div>
-      <h1>Background</h1>
+    <div className="background"> {/* Przypisanie klasy */}
+      <img src={logo} alt="Logo" className="logo" /> {/* Dodanie obrazka logo */}
+
+
     </div>
+
   );
 };
+
