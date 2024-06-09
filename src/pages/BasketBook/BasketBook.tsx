@@ -5,9 +5,6 @@
 // 5. wyswietlic za pomoca map 
 
 export const BasketBook = () => {
-
-
-
     return (
         <>
         </>
