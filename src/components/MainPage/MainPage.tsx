@@ -1,13 +1,11 @@
 import { BookList } from "../../components/BookList/BookList";
-import { LinkForAddProduct } from "../LinksForPages/AddProductButton";
 import SearchInput from "../../pages/SearchInput/searchInput";
-import { Background } from "../Nav/Background/Background";
+import { MainNav } from "../Nav/MainNav/MainNav";
 export const MainPage = () => {
   return (
     <div>
-      <Background/>
+      <MainNav />
       <SearchInput />
-      <LinkForAddProduct />
       <BookList />
     </div>
   );
