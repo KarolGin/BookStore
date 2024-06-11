@@ -16,8 +16,7 @@ export const BookList = () => {
   const [books, setBooks] = useState<BookType[]>([]);
   const navigate = useNavigate();
 
-=======
-<!--   const [sortBy, setSortBy] = useState(""); -->
+const [sortBy, setSortBy] = useState(""); 
 
   const fetchBooks = async () => {
     try {
@@ -69,13 +68,13 @@ export const BookList = () => {
           />
         ))}
 
-<!--       <div className="counter">Liczba dostępnych pozycji:{books.length}</div>
+      <div className="counter">Liczba dostępnych pozycji:{books.length}</div>
       <BookSort setSortBy={setSortBy} />
       <div className="book-container">
         {books.length &&
           books
             .sort(compareBasedOnSortBy)
-            .map((item) => <Book {...item}></Book>)} -->
+            .map((item) => <Book {...item}></Book>)} 
 
       </div>
     </>
