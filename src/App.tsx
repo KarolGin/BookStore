@@ -12,6 +12,7 @@ import i18n from "./i18";
 import { BookList } from "./components/BookList/BookList";
 import { BookDetails } from "./components/BookDetails/BookDetails";
 import { CartBook } from "./pages/CartButton/CartButton";
+import { MainPage } from "./components/MainPage/MainPage";
 
 function App() {
   const { t } = useTranslation();
@@ -37,7 +38,7 @@ function App() {
         {t("refresh page")}
       </button>
       <Routes>
-        <Route path="/" element={<Background />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />
         <Route path="edit" element={<EditBooks />} />
         <Route path="search" element={<SearchInput />} />
