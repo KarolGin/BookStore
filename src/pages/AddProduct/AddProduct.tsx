@@ -1,6 +1,5 @@
 import "./AddProduct.scss"
 import React, { useState } from "react";
-import { Background } from "../../components/Nav/Background/Background";
 import logo from "./images/books.png";
 type Product = {
   title: string;
