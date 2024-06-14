@@ -1,6 +1,7 @@
 import "./AddProduct.scss"
 import React, { useState } from "react";
 import logo from "./images/books.png";
+import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
 type Product = {
   title: string;
   isbn: string;
@@ -52,8 +53,10 @@ export const AddProduct = () => {
   
   return (
     <>
-
     <div className="main-container">
+    <div className="hamburger-menu-container">
+    <HamburgerMenu  />
+    </div>
     <img src= { logo } alt="Logo strony" />
      <span className="container-form">
     <h2 className="add-new-book-text" >Dodaj nową książke</h2>
