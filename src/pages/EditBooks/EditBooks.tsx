@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import "./EditBook.scss"
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -7,6 +8,7 @@ export type Book = {
     isbn: string;
     pageCount: number;
     authors: string[];
+    availableCopies: number;
 };
 
 export const EditBooks = () => {
@@ -57,6 +59,8 @@ export const EditBooks = () => {
         event.preventDefault();
         alert("Book was updated");
     };
+
+    
 
     return (
         <>
@@ -118,13 +122,13 @@ export const EditBooks = () => {
                 )}
                 <div>
                     <button type="submit" className="button-submit">
-                        Submit
+                        {t(`submit`)}
                     </button>
                 </div>
             </form>
             {book && (
                 <div className="updated-details">
-                    <h2>Updated Book Details</h2>
+                    <h2>{t(`updated Book Details`)}</h2>
                     <p><strong>Title:</strong> {book.title}</p>
                     <p><strong>Authors:</strong> {book.authors ? book.authors.join(", ") : "N/A"}</p>
                     <p><strong>Page Count:</strong> {book.pageCount}</p>

@@ -12,14 +12,15 @@ import i18n from "./i18";
 import { BookList } from "./components/BookList/BookList";
 import { BookDetails } from "./components/BookDetails/BookDetails";
 import { MainPage } from "./components/MainPage/MainPage";
-import { BasketBookContextProvider } from "./pages/BasketBookContext/BasketBookContext";
 import { CartBook } from "./pages/CartButton/CartButton";
+import { SellBookComponent } from "./pages/SellBookComponent/sellBookComponent";
+
 
 function App() {
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage("language", "pl");
 
-  const handleLenguageChange = () => {
+ const  handleLenguageChange = () => {
     if (language === "en") {
       i18n.changeLanguage("pl");
       setLanguage("pl");
@@ -30,7 +31,6 @@ function App() {
   };
   return (
     <div className='App'>
-        <h2>{t('Hello World')}</h2>
             <br />
             <button onClick={handleLenguageChange}>
                 {t('change to')}{' '}
@@ -47,6 +47,7 @@ function App() {
         <Route path="cart" element={<CartBook /> } />
         <Route path="/booklist" element={<BookList />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
+        <Route path="sell" element={<SellBookComponent /> } />
       </Routes>
     </div>
   );

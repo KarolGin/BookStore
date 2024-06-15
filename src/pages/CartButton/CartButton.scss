@@ -6,7 +6,7 @@
     position: absolute;
     background-color: black;
     color: #fff;
-    font-size: 15px;
+    font-size: 14px;
     border-radius: 8px;
     padding: 0 1em;
     overflow: hidden;
@@ -43,4 +43,20 @@
       transform: rotateZ(60deg) translate(1em, -9em);
     }
 }
+
+.cart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-item {
+    margin: 5px 0;
+}
+
 
