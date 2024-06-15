@@ -11,8 +11,9 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import i18n from "./i18";
 import { BookList } from "./components/BookList/BookList";
 import { BookDetails } from "./components/BookDetails/BookDetails";
-import { CartBook } from "./pages/CartButton/CartButton";
 import { MainPage } from "./components/MainPage/MainPage";
+import { BasketBookContextProvider } from "./pages/BasketBookContext/BasketBookContext";
+import { CartBook } from "./pages/CartButton/CartButton";
 
 function App() {
   const { t } = useTranslation();
@@ -28,15 +29,17 @@ function App() {
     }
   };
   return (
-    <div className="App">
-      <h2>{t("Hello World")}</h2>
-      <br />
-      <button onClick={handleLenguageChange}>
-        {t("change to")} {language === "en" ? t("polish") : t("english")}
-      </button>
-      <button className="reload" onClick={() => window.location.reload()}>
-        {t("refresh page")}
-      </button>
+    <div className='App'>
+        <h2>{t('Hello World')}</h2>
+            <br />
+            <button onClick={handleLenguageChange}>
+                {t('change to')}{' '}
+                {language === 'en' ? t('polish') : t('english')}
+            </button>
+            <button className='reload' onClick={() => window.location.reload()}>
+                {t('refresh page')}
+            </button>
+    <BasketBookContextProvider>           
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />
@@ -45,8 +48,8 @@ function App() {
         <Route path="cart" element={<CartBook /> } />
         <Route path="/booklist" element={<BookList />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
-
       </Routes>
+      </BasketBookContextProvider> 
     </div>
   );
 }
