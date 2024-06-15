@@ -11,6 +11,7 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import i18n from "./i18";
 import { BookList } from "./components/BookList/BookList";
 import { BookDetails } from "./components/BookDetails/BookDetails";
+import { MainPage } from "./components/MainPage/MainPage";
 import { BasketBookContextProvider } from "./pages/BasketBookContext/BasketBookContext";
 import { CartBook } from "./pages/CartButton/CartButton";
 
@@ -40,7 +41,7 @@ function App() {
             </button>
     <BasketBookContextProvider>           
       <Routes>
-        <Route path="/" element={<Background />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />
         <Route path="edit" element={<EditBooks />} />
         <Route path="search" element={<SearchInput />} />

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./searchInput.scss";
-import { BookList } from "../../components/BookList/BookList";
 import { t } from "i18next";
+import { BookList } from "../../components/BookList/BookList";
 
 
 export type SearchTag = {
@@ -99,38 +99,39 @@ export const SearchInput = () => {
     </>
   );
 
-<!--     return (
-        <>
-        <div className="search-container">
-            <form className="search">
-                <label htmlFor="search-input" className="search-label">
-                    <input
-                        value={query}
-                        type="text"
-                        placeholder={t("Search")}
-                        className="search-input"
-                        onChange={(e) => setQuery(e.target.value)}
-                    />
-                    <span className="search-icon">🔎</span>
-                </label>
-            </form>
-            {error && <p>{error}</p>}
-            {showDropdown && (
-                <ul className="dropdown">
-                    {resultList.map((book, index) => (
-                        <li
-                            key={index}
-                            className="dropdown-item"
-                            onClick={() => handleSelect(book.title)}
-                        >
-                            {book.title}
-                        </li>
-                    ))}
-                </ul>
-            )}
-            </div>
-        </>
-    ); -->
+// <!--     return (
+//         <>
+//         <div className="search-container">
+//             <form className="search">
+//                 <label htmlFor="search-input" className="search-label">
+//                     <input
+//                         value={query}
+//                         type="text"
+//                         placeholder={t("Search")}
+//                         className="search-input"
+//                         onChange={(e) => setQuery(e.target.value)}
+//                     />
+//                     <span className="search-icon">🔎</span>
+//                 </label>
+//             </form>
+//             {error && <p>{error}</p>}
+//             {showDropdown && (
+//                 <ul className="dropdown">
+//                     {resultList.map((book, index) => (
+//                         <li
+//                             key={index}
+//                             className="dropdown-item"
+//                             onClick={() => handleSelect(book.title)}
+//                         >
+//                             {book.title}
+//                         </li>
+//                     ))}
+//                 </ul>
+//             )}
+            
+//             </div>
+//         </>
+//     ); -->
 
 };
 
