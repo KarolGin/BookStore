@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 import "./BookSort.scss";
-
 type props = {
   setSortBy: Dispatch<SetStateAction<string>>;
 };

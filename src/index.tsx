@@ -4,8 +4,6 @@ import './index.scss';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { BasketBookContextProvider } from './pages/BasketBookContext/BasketBookContext';
-
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );

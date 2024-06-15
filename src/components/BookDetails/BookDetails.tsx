@@ -2,16 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BookType } from "../BookList/BookList";
 import "./BookDetails.scss";
-
 interface Params {
   id: string;
   [key: string]: string | undefined;
 }
-
 export const BookDetails: React.FC = () => {
   const { id } = useParams<Params>();
   const [book, setBook] = useState<BookType | null>(null);
-
   const fetchBookDetails = async () => {
     try {
       const res = await fetch(`https://fakeapi.extendsclass.com/books/${id}`);
@@ -24,13 +21,10 @@ export const BookDetails: React.FC = () => {
       console.error("Error fetching book details:", error);
     }
   };
-
   useEffect(() => {
     fetchBookDetails();
   }, [id]);
-
   if (!book) return <div>Loading...</div>;
-
   return (
     <div className="book-details">
       <h2>Book Details</h2>
