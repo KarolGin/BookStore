@@ -4,6 +4,7 @@ import { Book } from "../Book/Book";
 import "./BookList.scss";
 import { BookSort } from "../BookSort/BookSort";
 import { SearchContext } from "../../hooks/searchContext/searchContext";
+import { t } from "i18next";
 
 export type BookType = {
   id: string;

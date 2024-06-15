@@ -8,27 +8,18 @@ import useLocalStorage from "./hooks/useLocalStorage";
 import i18n from "./i18";
 import { BookDetails } from "./components/BookDetails/BookDetails";
 import { MainPage } from "./components/MainPage/MainPage";
+import SellBookComponent from "./pages/SellBookComponent/sellBookComponent";
+
 
 function App() {
-  const { t } = useTranslation();
-  const [language, setLanguage] = useLocalStorage("language", "pl");
-
-  const handleLenguageChange = () => {
-    if (language === "en") {
-      i18n.changeLanguage("pl");
-      setLanguage("pl");
-    } else if (language === "pl") {
-      i18n.changeLanguage("en");
-      setLanguage("en");
-    }
-  };
   return (
-    <div className='App'>   
+    <div className='App'>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />
         <Route path="/edit" element={<EditBooks />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
+        <Route path="sell" element={<SellBookComponent />} />
       </Routes>
     </div>
   );
