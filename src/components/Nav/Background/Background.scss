@@ -1,18 +1,51 @@
 .background {
-  background-color: #cadbef;
   background-image: url("background.png");
   background-size: cover; /* Dopasowanie obrazka do rozmiaru kontenera */
   background-repeat: no-repeat; /* Zapobieganie powtarzaniu obrazka */
-  background-position: center top; /* Wyśrodkowanie obrazka */
+  background-position: center; /* Wyśrodkowanie obrazka */
   display: flex;
-  position: fixed;
+  position: relative;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 100%;
+  height: 600px;
   z-index: -1; /* Ustawienie tła za innymi elementami */
+  box-sizing: border-box;
 }
+body {
+  background-color: #abbacb;
+}
+
 .logo {
-  max-width: 500px; /* Dostosuj szerokość logo */
-  max-height: 200px; /* Dostosuj wysokość logo */
+  max-width: 400px; 
+  max-height: 200px; 
+  margin-top: 20px; 
+  margin-left: 40px;
+
 }
+
+@media (max-width: 768px) {
+  .background {
+    height: 400px; 
+  }
+
+  .logo {
+    max-width: 500px; 
+    margin-top: 70px; 
+    margin-left: 0px;
+    max-height: 100px; 
+
+  }
+}
+
+@media (max-width: 480px) {
+  .background {
+    height: 400px; 
+  }
+
+  .logo {
+    max-width: 400px; 
+    margin-top: 70px; 
+    margin-left: 0px;
+  }
+
