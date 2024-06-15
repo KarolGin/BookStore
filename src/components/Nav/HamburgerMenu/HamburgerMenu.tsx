@@ -15,8 +15,8 @@ export const HamburgerMenu = () => {
             </button>
             <ul className={`menu ${isOpen ? 'open' : ''}`}>
                 <li><a href="/">Strona Główna</a></li>
-                <li><a href="/add">O nas</a></li>
-                <li><a href="/edit">Usługi</a></li>
+                <li><a href="/add">Dodaj</a></li>
+                <li><a href="/edit">Edytuj</a></li>
             </ul>
         </div>
     );
