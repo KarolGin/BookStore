@@ -17,35 +17,33 @@ body {
 }
 
 .logo {
-  max-width: 400px; 
-  max-height: 200px; 
-  margin-top: 20px; 
+  max-width: 400px;
+  max-height: 200px;
+  margin-top: 20px;
   margin-left: 40px;
-
 }
 
 @media (max-width: 768px) {
   .background {
-    height: 400px; 
+    height: 400px;
   }
 
   .logo {
-    max-width: 500px; 
-    margin-top: 70px; 
+    max-width: 500px;
+    margin-top: 70px;
     margin-left: 0px;
-    max-height: 100px; 
-
+    max-height: 100px;
   }
 }
 
 @media (max-width: 480px) {
   .background {
-    height: 400px; 
+    height: 400px;
   }
 
   .logo {
-    max-width: 400px; 
-    margin-top: 70px; 
+    max-width: 400px;
+    margin-top: 70px;
     margin-left: 0px;
   }
-
+}

@@ -30,7 +30,7 @@ afterEach(() => {
 });
 
 test("renders BookList component and fetches books", async () => {
-  render(<BookList />);
+  render(<BookList/>);
 
   expect(screen.getByText("Liczba dostępnych pozycji:0")).toBeInTheDocument();
 
