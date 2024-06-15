@@ -36,8 +36,7 @@ function App() {
             </button>
             <button className='reload' onClick={() => window.location.reload()}>
                 {t('refresh page')}
-            </button>
-    <BasketBookContextProvider>           
+            </button>          
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />
@@ -47,7 +46,6 @@ function App() {
         <Route path="/booklist" element={<BookList />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
       </Routes>
-      </BasketBookContextProvider> 
     </div>
   );
 }
