@@ -1,7 +1,6 @@
 
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
-import { Background } from "./components/Nav/Background/Background";
 import AddProduct from "./pages/AddProduct/AddProduct";
 import EditBooks from "./pages/EditBooks/EditBooks";
 import { SearchInput } from "./pages/SearchInput/searchInput";
