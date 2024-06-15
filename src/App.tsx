@@ -1,4 +1,3 @@
-
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 import AddProduct from "./pages/AddProduct/AddProduct";
@@ -13,22 +12,21 @@ import { useTranslation } from "react-i18next";
 import useLocalStorage from "./hooks/useLocalStorage";
 import i18n from "./i18";
 
-
 function App() {
   const { t } = useTranslation();
-  const [language, setLanguage] = useLocalStorage('language', 'pl');
+  const [language, setLanguage] = useLocalStorage("language", "pl");
 
   const handleLenguageChange = () => {
-      if (language === 'en') {
-          i18n.changeLanguage('pl');
-          setLanguage('pl');
-      } else if (language === 'pl') {
-          i18n.changeLanguage('en');
-          setLanguage('en');
-      }
+    if (language === "en") {
+      i18n.changeLanguage("pl");
+      setLanguage("pl");
+    } else if (language === "pl") {
+      i18n.changeLanguage("en");
+      setLanguage("en");
+    }
   };
   return (
-    <div className='App'>
+    <div className="App">
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />
