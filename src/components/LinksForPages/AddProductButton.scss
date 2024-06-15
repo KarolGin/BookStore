@@ -1,0 +1,18 @@
+.link-for-page{
+    color: #007bff;
+    text-decoration: none;
+    transition: font-weight 0.3s ease;
+    font-size: 20px;
+}
+.link-for-page:hover{
+    font-weight: bold;
+}
+ul{
+    list-style-type: none;
+
+}
+.container-for-links{
+    display: flex;
+    flex-direction: row-reverse;
+    ;
+}
