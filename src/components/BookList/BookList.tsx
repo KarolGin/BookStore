@@ -4,7 +4,6 @@ import { Book } from "../Book/Book";
 import "./BookList.scss";
 import { BookSort } from "../BookSort/BookSort";
 
-
 export type BookType = {
   id: string;
   title: string;
@@ -12,8 +11,13 @@ export type BookType = {
   authors: string[];
 };
 
-export const BookList: React.FC = () => {
+type Props = {
+  query: string;
+};
+
+export const BookList: React.FC<Props> = ({ query }: Props) => {
   const [books, setBooks] = useState<BookType[]>([]);
+  const [filteredBooks, setFilteredBooks] = useState<BookType[]>([]);
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("");
 
@@ -28,6 +32,7 @@ export const BookList: React.FC = () => {
       const data = await res.json();
       if (data) {
         setBooks(data);
+        setFilteredBooks(data);
       }
     } catch (error) {
       console.error("Error fetching books:", error);
@@ -37,6 +42,20 @@ export const BookList: React.FC = () => {
   useEffect(() => {
     fetchBooks();
   }, []);
+
+  useEffect(() => {
+    if (query === "") {
+      setFilteredBooks(books);
+    } else {
+      setFilteredBooks(
+        books.filter(
+          (book) =>
+            book.title.toLowerCase().includes(query.toLowerCase()) ||
+            book.authors.join(", ").toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    }
+  }, [query]);
 
   const handleShowDetails = (bookId: string) => {
     navigate(`/bookdetails/${bookId}`);
@@ -56,11 +75,11 @@ export const BookList: React.FC = () => {
 
   return (
     <>
-      <div className="counter">Liczba dostępnych pozycji: {books.length}</div>
+      <div className="counter">Liczba dostępnych pozycji: {filteredBooks.length}</div>
       <BookSort setSortBy={setSortBy} />
       <div className="book-container">
-        {books.length > 0 &&
-          books
+        {filteredBooks.length > 0 &&
+          filteredBooks
             .sort(compareBasedOnSortBy)
             .map((item) => (
               <Book
