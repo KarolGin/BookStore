@@ -8,15 +8,15 @@ type BookContextType = {
     addToCart: (book: Book) => void;
     sellBook: (bookId: number) => void;
 };
-export const BasketBookContext = createContext<BookContextType>( 
+export const BasketBookContext = createContext<BookContextType>(
     {} as BookContextType
-); 
+);
 
 type Props = {
     children: JSX.Element | JSX.Element
 }
 
-export const BasketBookContextProvider = ({children}: Props) => {
+export const BasketBookContextProvider = ({ children }: Props) => {
     const [books, setBooks] = useState<Book[]>([]);
     const [bookCopies, setBookCopies] = useState<{ [key: number]: number }>({});
     const [cart, setCart] = useState<Book[]>([]);
@@ -29,14 +29,14 @@ export const BasketBookContextProvider = ({children}: Props) => {
 
             const initialCopies: { [key: number]: number } = {};
             data.forEach(book => {
-                initialCopies[book.id] = 5; 
+                initialCopies[book.id] = 5;
             });
-                setBookCopies(initialCopies);
+            setBookCopies(initialCopies);
         } catch (error) {
             console.log(`Error fetching book details:`, error);
         }
     }
-    
+
     useEffect(() => {
         fetchBooks();
     }, []);
@@ -54,15 +54,16 @@ export const BasketBookContextProvider = ({children}: Props) => {
 
     return (
         <BasketBookContext.Provider
-        value={{books,
-            bookCopies,
-            cart,
-            addToCart,
-            sellBook
+            value={{
+                books,
+                bookCopies,
+                cart,
+                addToCart,
+                sellBook
 
-        }}
+            }}
         >
-         {children}         
+            {children}
         </BasketBookContext.Provider>
     )
 }

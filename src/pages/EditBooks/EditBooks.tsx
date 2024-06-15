@@ -61,64 +61,64 @@ export const EditBooks = () => {
         alert("Book was updated");
     };
 
-    
+
 
     return (
         <>
-        <div className="hamburger-menu-container">
-        <HamburgerMenu />
-        </div>
+            <div className="hamburger-menu-container">
+                <HamburgerMenu />
+            </div>
             <form onSubmit={handleSubmit} className="form">
                 {book ? (
                     <div className="inputs">
                         <label htmlFor="input-title">
-                                <strong>Title:</strong>
-                                <input
-                                    className="input-title"
-                                    value={book.title}
-                                    name="title"
-                                    onChange={handleEdit}
-                                />
+                            <strong>Title:</strong>
+                            <input
+                                className="input-title"
+                                value={book.title}
+                                name="title"
+                                onChange={handleEdit}
+                            />
                         </label>
                         <label htmlFor="input-authors">
-                                <strong>Authors:</strong>
-                                <input
-                                    className="input-authors"
-                                    type="text"
-                                    value={book.authors ? book.authors.join(", ") : ""}
-                                    name="authors"
-                                    onChange={handleEdit}
-                                />
+                            <strong>Authors:</strong>
+                            <input
+                                className="input-authors"
+                                type="text"
+                                value={book.authors ? book.authors.join(", ") : ""}
+                                name="authors"
+                                onChange={handleEdit}
+                            />
                         </label>
                         <label htmlFor="input-pageCount">
-                                <strong>Page Count:</strong>
-                                <input
-                                    className="input-pageCount"
-                                    type="text"
-                                    value={book.pageCount}
-                                    name="pageCount"
-                                    onChange={handleEdit}
-                                />
+                            <strong>Page Count:</strong>
+                            <input
+                                className="input-pageCount"
+                                type="text"
+                                value={book.pageCount}
+                                name="pageCount"
+                                onChange={handleEdit}
+                            />
                         </label>
                         <label htmlFor="input-isbn">
-                                <strong>ISBN:</strong>
-                                <input
-                                    className="input-isbn"
-                                    type="text"
-                                    value={book.isbn}
-                                    name="isbn"
-                                    onChange={handleEdit}
-                                />
+                            <strong>ISBN:</strong>
+                            <input
+                                className="input-isbn"
+                                type="text"
+                                value={book.isbn}
+                                name="isbn"
+                                onChange={handleEdit}
+                            />
                         </label>
                         <label htmlFor="input-id">
-                                <strong>ID:</strong>
-                                <input
-                                    className="input-id"
-                                    type="text"
-                                    value={book.id}
-                                    name="id"
-                                    onChange={handleEdit}
-                                />
+                            <strong>ID:</strong>
+                            <input
+                                className="input-id"
+                                type="text"
+                                value={book.id}
+                                name="id"
+                                onChange={handleEdit}
+                            />
                         </label>
                     </div>
                 ) : (

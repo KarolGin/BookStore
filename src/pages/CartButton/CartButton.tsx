@@ -16,19 +16,19 @@ export const CartBook = () => {
         </div>
       </Link>
       <div className="cart-container">
-            <h1>{t(`mybasket`)}</h1>
-            {cart.length > 0 ? (
-            <ul>
-                {cart.map(book => (
-                    <li key={book.id}>
-                        {book.title}
-                    </li>
-                ))}
-            </ul>
+        <h1>{t(`mybasket`)}</h1>
+        {cart.length > 0 ? (
+          <ul>
+            {cart.map(book => (
+              <li key={book.id}>
+                {book.title}
+              </li>
+            ))}
+          </ul>
         ) : (
-            <p>{t(`nocartitems`)}</p>
+          <p>{t(`nocartitems`)}</p>
         )}
-    </div>
+      </div>
     </>
   )
 }

@@ -18,7 +18,7 @@ function App() {
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage("language", "pl");
 
- const  handleLenguageChange = () => {
+  const handleLenguageChange = () => {
     if (language === "en") {
       i18n.changeLanguage("pl");
       setLanguage("pl");
@@ -28,16 +28,16 @@ function App() {
     }
   };
   return (
-    <div className='App'>   
+    <div className='App'>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />
         <Route path="edit" element={<EditBooks />} />
         <Route path="search" element={<SearchInput />} />
-        <Route path="cart" element={<CartBook /> } />
+        <Route path="cart" element={<CartBook />} />
         <Route path="/booklist" element={<BookList />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
-        <Route path="sell" element={<SellBookComponent /> } />
+        <Route path="sell" element={<SellBookComponent />} />
       </Routes>
     </div>
   );

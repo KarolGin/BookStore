@@ -1,54 +1,52 @@
-
 body {
-    background-color: #cccccc;
-    
+  background-color: #cccccc;
 }
-
-
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .inputs {
-    width: 150px;
-    text-align: center;
+  width: 150px;
+  text-align: center;
 }
 
 strong {
-    font-size: 19px;
+  font-size: 19px;
 }
 
-.input-title, .input-authors, .input-pageCount, .input-isbn, .input-id{
-    border-radius: 8px;
-    line-height: 30px;
-    border-style:ridge;
-    border-width: 1px;
-    width: 200px;
-    font-size: 16px;
-    
+.input-title,
+.input-authors,
+.input-pageCount,
+.input-isbn,
+.input-id {
+  border-radius: 8px;
+  line-height: 30px;
+  border-style: ridge;
+  border-width: 1px;
+  width: 200px;
+  font-size: 16px;
 }
 
 .button-submit {
-    border-radius: 8px;
-    border-style: none;
-    border-color: grey;
-    background-color: #abbacb;
-    line-height: 30px;
-    width: 175px;
-    margin-left: 55px;
+  border-radius: 8px;
+  border-style: none;
+  border-color: grey;
+  background-color: #abbacb;
+  line-height: 30px;
+  width: 175px;
+  margin-left: 55px;
 }
 
 @media only screen and (max-width: 425px) {
-    .updated-details{
-        display: flex;
-        align-content: center;
-        flex-wrap: wrap;
-        flex-direction: column;
-        margin-left: 90px;
-    }
+  .updated-details {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 90px;
+  }
 }
