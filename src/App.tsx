@@ -30,7 +30,6 @@ function App() {
   };
   return (
     <div className='App'>
-        <h2>{t('Hello World')}</h2>
             <br />
             <button onClick={handleLenguageChange}>
                 {t('change to')}{' '}
