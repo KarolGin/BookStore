@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import logo from "./images/books.png";
 import { t } from "i18next";
 import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
+import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
 type Product = {
   title: string;
   isbn: string;
@@ -52,6 +53,9 @@ export const AddProduct = () => {
   return (
     <>
       <div className="main-container">
+        <div className="hamburger-menu-container">
+        <HamburgerMenu />
+        </div>
         <TranslateButtons />
         <img src={logo} alt="Logo strony" />
         <span className="container-form">

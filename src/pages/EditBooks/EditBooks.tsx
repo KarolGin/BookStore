@@ -1,3 +1,4 @@
+import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
 import "./EditBook.scss"
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -60,6 +61,9 @@ export const EditBooks = () => {
 
     return (
         <>
+        <div className="hamburger-menu-container">
+        <HamburgerMenu />
+        </div>
             <form onSubmit={handleSubmit} className="form">
                 {book ? (
                     <div className="inputs">
