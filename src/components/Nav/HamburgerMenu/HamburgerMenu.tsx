@@ -1,10 +1,12 @@
 import { useState } from "react";
 import "./HamburgerMenu.scss";
+import Paths from "./Paths";  
+
 
 export const HamburgerMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevIsOpen) => !prevIsOpen);
   };
   return (
     <div>
@@ -13,13 +15,13 @@ export const HamburgerMenu = () => {
       </button>
       <ul className={`menu ${isOpen ? "open" : ""}`}>
         <li>
-          <a href="/">Strona Główna</a>
+        <a href={Paths.home}>Strona Główna</a>
         </li>
         <li>
-          <a href="/add">Dodaj</a>
+          <a href={Paths.add}>Dodaj</a>
         </li>
         <li>
-          <a href="/edit">Edytuj</a>
+          <a href={Paths.edit}>Edytuj</a>
         </li>
       </ul>
     </div>
