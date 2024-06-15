@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Book } from "../Book/Book";
 import "./BookList.scss";
 import { BookSort } from "../BookSort/BookSort";
+import { SearchContext } from "../../hooks/searchContext/searchContext";
 import { t } from "i18next";
-
 
 export type BookType = {
   id: string;
@@ -14,7 +14,9 @@ export type BookType = {
 };
 
 export const BookList: React.FC = () => {
+  const { query } = useContext(SearchContext);
   const [books, setBooks] = useState<BookType[]>([]);
+  const [filteredBooks, setFilteredBooks] = useState<BookType[]>([]);
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("");
 
@@ -29,6 +31,7 @@ export const BookList: React.FC = () => {
       const data = await res.json();
       if (data) {
         setBooks(data);
+        setFilteredBooks(data);
       }
     } catch (error) {
       console.error("Error fetching books:", error);
@@ -38,6 +41,20 @@ export const BookList: React.FC = () => {
   useEffect(() => {
     fetchBooks();
   }, []);
+
+  useEffect(() => {
+    if (query === "") {
+      setFilteredBooks(books);
+    } else {
+      setFilteredBooks(
+        books.filter(
+          (book) =>
+            book.title.toLowerCase().includes(query.toLowerCase()) ||
+            book.authors.join(", ").toLowerCase().includes(query.toLowerCase())
+        )
+      );
+    }
+  }, [query]);
 
   const handleShowDetails = (bookId: string) => {
     navigate(`/bookdetails/${bookId}`);
@@ -57,11 +74,13 @@ export const BookList: React.FC = () => {
 
   return (
     <>
-      <div className="counter">{t(`number of available items`)} : {books.length}</div>
+      <div className="counter">
+        Liczba dostępnych pozycji: {filteredBooks.length}
+      </div>
       <BookSort setSortBy={setSortBy} />
       <div className="book-container">
-        {books.length > 0 &&
-          books
+        {filteredBooks.length > 0 &&
+          filteredBooks
             .sort(compareBasedOnSortBy)
             .map((item) => (
               <Book
