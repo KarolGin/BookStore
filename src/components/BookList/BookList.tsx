@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Book } from "../Book/Book";
 import "./BookList.scss";
 import { BookSort } from "../BookSort/BookSort";
+import { SearchContext } from "../../hooks/searchContext/searchContext";
 
 export type BookType = {
   id: string;
@@ -11,11 +12,8 @@ export type BookType = {
   authors: string[];
 };
 
-type Props = {
-  query: string;
-};
-
-export const BookList: React.FC<Props> = ({ query }: Props) => {
+export const BookList: React.FC = () => {
+  const { query } = useContext(SearchContext);
   const [books, setBooks] = useState<BookType[]>([]);
   const [filteredBooks, setFilteredBooks] = useState<BookType[]>([]);
   const navigate = useNavigate();
@@ -75,7 +73,9 @@ export const BookList: React.FC<Props> = ({ query }: Props) => {
 
   return (
     <>
-      <div className="counter">Liczba dostępnych pozycji: {filteredBooks.length}</div>
+      <div className="counter">
+        Liczba dostępnych pozycji: {filteredBooks.length}
+      </div>
       <BookSort setSortBy={setSortBy} />
       <div className="book-container">
         {filteredBooks.length > 0 &&

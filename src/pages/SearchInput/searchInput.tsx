@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 import "./searchInput.scss";
 import { t } from "i18next";
+import { SearchContext } from "../../hooks/searchContext/searchContext";
 
 export type SearchTag = {
   title: string;
@@ -12,7 +13,10 @@ type Props = {
   setQuery: Dispatch<SetStateAction<string>>
 }
 
-export const SearchInput = ({query, setQuery} : Props) => {
+export const SearchInput = () => {
+
+  const {query, setQuery} = useContext(SearchContext);
+
   return (
     <>
       <div className="search-container">
