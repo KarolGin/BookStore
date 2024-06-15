@@ -1,4 +1,3 @@
-
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 import AddProduct from "./pages/AddProduct/AddProduct";
@@ -12,8 +11,9 @@ import SellBookComponent from "./pages/SellBookComponent/sellBookComponent";
 
 
 function App() {
+
   return (
-    <div className='App'>
+    <div className="App">
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />

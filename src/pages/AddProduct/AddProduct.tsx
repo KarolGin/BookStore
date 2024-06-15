@@ -1,9 +1,10 @@
 import "./AddProduct.scss";
 import React, { useState } from "react";
 import logo from "./images/books.png";
-import { t } from "i18next";
 import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
 import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
+import { useTranslation } from "react-i18next";
+
 type Product = {
   title: string;
   isbn: string;
@@ -14,6 +15,7 @@ export const AddProduct = () => {
   const [title, setTitle] = useState("");
   const [isbn, setIsbn] = useState("");
   const [pageCount, setPageCount] = useState("");
+  const { t, i18n } = useTranslation();
 
   const addProduct = async () => {
     try {
