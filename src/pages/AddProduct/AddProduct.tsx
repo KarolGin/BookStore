@@ -1,6 +1,8 @@
 import "./AddProduct.scss"
 import React, { useState } from "react";
 import logo from "./images/books.png";
+import { t } from "i18next";
+import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
 type Product = {
   title: string;
   isbn: string;
@@ -52,14 +54,14 @@ export const AddProduct = () => {
   
   return (
     <>
-
     <div className="main-container">
+<TranslateButtons />
     <img src= { logo } alt="Logo strony" />
      <span className="container-form">
-    <h2 className="add-new-book-text" >Dodaj nową książke</h2>
+    <h2 className="add-new-book-text" >{t(`Add New Book`)}</h2>
     <form onSubmit={handleSubmit}>
       <div className="input-container">
-        <label><strong>Tytuł:</strong></label>
+        <label><strong>{t(`Title`)}</strong></label>
         <input
           type="text"
           value={title}
@@ -77,7 +79,7 @@ export const AddProduct = () => {
         />
       </div>
       <div className="input-container">
-        <label><strong>Strony:</strong></label>
+        <label><strong>{t(`Pages`)}</strong></label>
         <input
           type="number"
           value={pageCount}
@@ -86,19 +88,19 @@ export const AddProduct = () => {
         />
       </div>
   <span className="add-new-book-button">
-  <button className="submit-button" type="submit">Dodaj Produkt</button>
+  <button className="submit-button" type="submit">{t(`addProduct`)}</button>
   </span>
     </form>
     <div className="preview-new-book">
-      <h2>Podgląd nowej książki</h2>
+      <h2>{t(`preview new book`)}</h2>
       <span>
-        <strong>Tytuł:</strong> {title}
+        <strong>{t(`Title`)}:</strong> {title}
         <br />
         <strong>Isbn:</strong> {isbn}
         <br />
-        <strong>Liczna stron:</strong> {pageCount}
+        <strong>{t(`page count`)}</strong> {pageCount}
         <br />
-        <strong>Data dodania:</strong> {new Date().toLocaleString()}
+        <strong>{t(`date added`)}</strong> {new Date().toLocaleString()}
       </span>
     </div>
     </span>

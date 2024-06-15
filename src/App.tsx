@@ -27,15 +27,6 @@ function App() {
   };
   return (
     <div className='App'>
-        <h2>{t('Hello World')}</h2>
-            <br />
-            <button onClick={handleLenguageChange}>
-                {t('change to')}{' '}
-                {language === 'en' ? t('polish') : t('english')}
-            </button>
-            <button className='reload' onClick={() => window.location.reload()}>
-                {t('refresh page')}
-            </button>
       <Routes>
     <Route path="/" element={<Background />} />
     <Route path="/add" element={<AddProduct />} />
