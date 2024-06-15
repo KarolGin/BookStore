@@ -1,8 +1,6 @@
 
-import React from "react";
 import "./App.scss";
 import { Route, Routes } from "react-router-dom";
-import { Background } from "./components/Nav/Background/Background";
 import AddProduct from "./pages/AddProduct/AddProduct";
 import EditBooks from "./pages/EditBooks/EditBooks";
 import { SearchInput } from "./pages/SearchInput/searchInput";
@@ -30,15 +28,7 @@ function App() {
     }
   };
   return (
-    <div className='App'>
-            <br />
-            <button onClick={handleLenguageChange}>
-                {t('change to')}{' '}
-                {language === 'en' ? t('polish') : t('english')}
-            </button>
-            <button className='reload' onClick={() => window.location.reload()}>
-                {t('refresh page')}
-            </button>          
+    <div className='App'>   
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/add" element={<AddProduct />} />

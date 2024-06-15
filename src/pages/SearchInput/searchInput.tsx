@@ -3,7 +3,6 @@ import "./searchInput.scss";
 import { t } from "i18next";
 import { BookList } from "../../components/BookList/BookList";
 
-
 export type SearchTag = {
   title: string;
   authors: string[];
@@ -98,7 +97,6 @@ export const SearchInput = () => {
       <BookList />
     </>
   );
-
 };
 
 export default SearchInput;

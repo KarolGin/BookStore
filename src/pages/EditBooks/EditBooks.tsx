@@ -1,4 +1,5 @@
 import { t } from "i18next";
+import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
 import "./EditBook.scss"
 import { ChangeEvent, useEffect, useState } from "react";
 
@@ -64,6 +65,9 @@ export const EditBooks = () => {
 
     return (
         <>
+        <div className="hamburger-menu-container">
+        <HamburgerMenu />
+        </div>
             <form onSubmit={handleSubmit} className="form">
                 {book ? (
                     <div className="inputs">
@@ -128,7 +132,7 @@ export const EditBooks = () => {
             </form>
             {book && (
                 <div className="updated-details">
-                    <h2>{t(`updated Book Details`)}</h2>
+                    <h2>{t(`updatedBookDetails`)}</h2>
                     <p><strong>Title:</strong> {book.title}</p>
                     <p><strong>Authors:</strong> {book.authors ? book.authors.join(", ") : "N/A"}</p>
                     <p><strong>Page Count:</strong> {book.pageCount}</p>

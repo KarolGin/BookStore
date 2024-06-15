@@ -5,7 +5,7 @@ export default {
     "english":"angielski",
     "polish":"polski",
     "refresh page":"odswiez strone",
-    "updated Book Details": "Zaktualizowane szczegóły książki",
+    "updatedBookDetails": "Zaktualizowane szczegóły książki",
     "submit": "Wysli",
     "search" : "Wyszukaj",
     "areyousure" : "Czy na pewno chcesz sprzedać wybraną książkę",
@@ -16,6 +16,13 @@ export default {
     "accessible" : "Dostępne",
     "number of available items" : "Liczba dostępnych pozycji",
     "mybasket" : "Moj Koszyk",
-    "nocartitems" : "Brak elementów koszyka"
+    "nocartitems" : "Brak elementów koszyka",
+    "add-new-book" : "Dodaj nową książke",
+    "title" : "Tytuł:",
+    "pages" : "Strony:",
+    "addProduct" : "Dodaj produkt",
+    "preview-new-book" : "podgląd nowej książki",
+    "page-count" : "liczba stron",
+    "date-added" : "data dodania",
 },
 };
