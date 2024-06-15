@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Book } from "../Book/Book";
 import "./BookList.scss";
 import { BookSort } from "../BookSort/BookSort";
+import { t } from "i18next";
 
 
 export type BookType = {
@@ -56,7 +57,7 @@ export const BookList: React.FC = () => {
 
   return (
     <>
-      <div className="counter">Liczba dostępnych pozycji: {books.length}</div>
+      <div className="counter">{t(`number of available items`)} : {books.length}</div>
       <BookSort setSortBy={setSortBy} />
       <div className="book-container">
         {books.length > 0 &&
