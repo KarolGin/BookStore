@@ -21,7 +21,7 @@ export const SearchInput = ({query, setQuery} : Props) => {
             <input
               value={query}
               type="text"
-              placeholder={t("Search")}
+              placeholder={t("search")}
               className="search-input"
               onChange={(e) => setQuery(e.target.value)}
             />

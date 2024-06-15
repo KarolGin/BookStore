@@ -54,7 +54,7 @@ export const AddProduct = () => {
     <>
       <div className="main-container">
         <div className="hamburger-menu-container">
-        <HamburgerMenu />
+          <HamburgerMenu />
         </div>
         <TranslateButtons />
         <img src={logo} alt="Logo strony" />
