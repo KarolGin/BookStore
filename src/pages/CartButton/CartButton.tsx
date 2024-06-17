@@ -16,9 +16,9 @@ export const CartBook = () => {
         </div>
       </Link>
       <div className="cart-container">
-        <h1>{t(`mybasket`)}</h1>
+        <h1 className="list-basket">{t(`mybasket`)}</h1>
         {cart.length > 0 ? (
-          <ul>
+          <ul className="list-items">
             {cart.map(book => (
               <li key={book.id}>
                 {book.title}
@@ -26,7 +26,7 @@ export const CartBook = () => {
             ))}
           </ul>
         ) : (
-          <p>{t(`nocartitems`)}</p>
+          <p className="nocart-items">{t(`nocartitems`)}</p>
         )}
       </div>
     </>

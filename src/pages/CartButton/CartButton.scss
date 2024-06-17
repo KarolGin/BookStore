@@ -63,3 +63,52 @@
 .cart-item {
   margin: 5px 0;
 }
+
+@media only screen and (max-width: 375px) {
+  .list-items{
+    font-size: 15px;
+    margin-right: 40px;
+  }
+
+  .cart-button {
+    margin-left: 95px;
+    width: 170px;
+    height: 23px;
+  }
+  .shopping-cart {
+    margin-left: 35px;
+    width: 20px;
+    height: 19px;
+  }
+  .basket {
+    font-size: 13px;
+  }
+  .list-basket {
+    margin-top: 45px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .list-basket {
+    font-size: 45px;
+    margin-right: 110px;
+  }
+  .nocart-items {
+    font-size: 30px;
+  }
+  .basket {
+    font-size: 20px;
+    }
+  .cart-button {
+    margin-top: 42px;
+    width: 205px;
+  }
+  .shopping-cart {
+    width: 24px;
+    height: 26px;
+  }
+  .list-items {
+    margin-right: 150px;
+  }
+}

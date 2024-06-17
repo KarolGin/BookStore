@@ -28,8 +28,7 @@ export const SellBookComponent = () => {
         <>
             <CartBook />
             <div className="sell-container">
-
-                <h1>{t(`listbook`)}</h1>
+                <h1 className="list-header">{t(`listbook`)}</h1>
                 <ul className="book-list">
                     {books.map(book => (
                         <li key={book.id} className="book-item">
@@ -43,7 +42,7 @@ export const SellBookComponent = () => {
 
                 {selectedBookId !== null && (
                     <div className="modal">
-                        <p>{t(`areyousure`)}</p>
+                        <p className="confirm-message">{t(`areyousure`)}</p>
                         <div>
                             <button onClick={() => setSelectedBookId(null)} className="reject-button">{t(`no`)}</button>
                             <button onClick={confirmSell} className="confirm-button">{t(`yes`)}</button>
