@@ -3,7 +3,6 @@
   flex-direction: column;
   align-content: center;
   flex-wrap: wrap;
-  align-items: flex-end;
 }
 
 .book-list {
@@ -28,8 +27,9 @@
   padding: 0 1em;
   overflow: hidden;
   line-height: 30px;
-  width: 150px;
+  width: 190px;
   margin-left: 60px;
+  box-sizing: border-box;
 }
 
 .modal {
@@ -57,4 +57,43 @@
   padding: 0 1em;
   margin: 5px;
   width: 100px;
+  box-sizing: border-box;
+}
+
+.list-header {
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 375px) {
+  .list-header {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .book-list {
+    display: flex;
+    font-size: 30px;
+    flex-direction: column;
+    width: 700px;
+  }
+  .sell-button {
+    font-size: 20px;
+  }
+  .list-header {
+    font-size: 45px;
+    margin-left: 145px;
+  }
+  .confirm-message {
+    font-size: 25px;
+  }
+  .reject-button,
+  .confirm-button {
+    font-size: 20px;
+  }
+  .list-items {
+    font-size: 30px;
+  }
+
 }
