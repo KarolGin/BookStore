@@ -6,6 +6,7 @@ import { BookDetails } from "./components/BookDetails/BookDetails";
 import { MainPage } from "./components/MainPage/MainPage";
 import SellBookComponent from "./pages/SellBookComponent/sellBookComponent";
 import { CartBook } from "./pages/CartButton/CartButton";
+import { TranslateButtons } from "./components/TranslateButtons/TranslateButtons";
 
 
 function App() {
@@ -17,8 +18,9 @@ function App() {
         <Route path="/add" element={<AddProduct />} />
         <Route path="/edit" element={<EditBooks />} />
         <Route path="/bookdetails/:id" element={<BookDetails />} />
-        <Route path="sell" element={<SellBookComponent />} />
+        <Route path="/sell" element={<SellBookComponent />} />
         <Route path="/cart" element={<CartBook />} />
+        <Route path="/trans" element={<TranslateButtons />} />
       </Routes>
     </div>
   );

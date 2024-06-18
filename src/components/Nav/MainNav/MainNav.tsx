@@ -14,6 +14,9 @@ export const MainNav = () => {
           <li className="main-nav-list-item">
             <a href="/edit">Edytuj produkt</a>
           </li>
+          <li className="main-nav-list-item">
+            <a href="/sell">Sprzedaj produkt</a>
+          </li>
         </ul>
       </span>
     </div>
