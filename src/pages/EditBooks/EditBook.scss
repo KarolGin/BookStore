@@ -25,17 +25,21 @@ strong {
   border-width: 1px;
   width: 200px;
   font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .button-submit {
   border-radius: 8px;
   border-style: none;
   border-color: grey;
-  background-color: #abbacb;
   line-height: 30px;
   width: 175px;
   margin-left: 55px;
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
+
 
 @media only screen and (max-width: 425px) {
   .updated-details {

@@ -64,6 +64,11 @@
   margin: 5px 0;
 }
 
+.change-lang-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
 @media only screen and (max-width: 375px) {
   .list-items{
     font-size: 15px;

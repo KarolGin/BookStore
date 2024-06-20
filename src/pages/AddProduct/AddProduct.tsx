@@ -57,8 +57,12 @@ export const AddProduct = () => {
       <div className="main-container">
         <div className="hamburger-menu-container">
           <HamburgerMenu />
-        </div>
+          <div className="lang-button">
         <TranslateButtons />
+        </div>
+        </div>
+        
+        
         <img src={logo} alt="Logo strony" />
         <span className="container-form">
           <h2 className="add-new-book-text">{t(`add-new-book`)}</h2>
@@ -76,7 +80,7 @@ export const AddProduct = () => {
             </div>
             <div className="input-container">
               <label>
-                <strong>Isbn:</strong>
+                <strong>ISBN:</strong>
               </label>
               <input
                 type="text"
@@ -105,13 +109,13 @@ export const AddProduct = () => {
           <div className="preview-new-book">
             <h2>{t(`preview-new-book`)}</h2>
             <span>
-              <strong>{t(`title`)}:</strong> {title}
+              <strong>{t(`title`)}</strong> {title}
               <br />
-              <strong>Isbn:</strong> {isbn}
+              <strong>ISBN:</strong> {isbn}
               <br />
-              <strong>{t(`page-count`)}</strong> {pageCount}
+              <strong>{t(`page-count`)}:</strong> {pageCount}
               <br />
-              <strong>{t(`date-added`)}</strong> {new Date().toLocaleString()}
+              <strong>{t(`date-added`)}:</strong> {new Date().toLocaleString()}
             </span>
           </div>
         </span>

@@ -6,7 +6,6 @@ export const Background: React.FC = () => {
     <div className="background"> {/* Przypisanie klasy */}
       <img src={logo} alt="Logo" className="logo" /> {/* Dodanie obrazka logo */}
     </div>
-
   );
 };
 

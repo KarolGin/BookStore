@@ -21,7 +21,8 @@ export default {
         "pages": "Pages:",
         "addProduct": "Add product",
         "preview-new-book": "preview of the new book",
-        "page-count": "number of pages",
-        "date-added": "date added",
+        "page-count": "Number of pages",
+        "date-added": "Date added",
+        "authors" : "Authors",
     },
 };
