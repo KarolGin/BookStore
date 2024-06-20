@@ -3,11 +3,13 @@ import { BasketBookContext } from "../BasketBookContext/BasketBookContext";
 import { t } from "i18next";
 import "./sellBookComponent.scss";
 import { CartBook } from "../CartButton/CartButton";
+import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
+import { useTranslation } from "react-i18next";
 
 export const SellBookComponent = () => {
     const { books, bookCopies, addToCart, sellBook } = useContext(BasketBookContext);
     const [selectedBookId, setSelectedBookId] = useState<number | null>(null);
-
+    const { t, i18n } = useTranslation();
     const handleSellClick = (bookId: number) => {
         setSelectedBookId(bookId);
     };
@@ -50,7 +52,6 @@ export const SellBookComponent = () => {
                     </div>
                 )}
             </div>
-
         </>
     );
 };

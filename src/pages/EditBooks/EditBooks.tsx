@@ -2,6 +2,8 @@ import { t } from "i18next";
 import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
 import "./EditBook.scss"
 import { ChangeEvent, useEffect, useState } from "react";
+import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
+import { useTranslation } from "react-i18next";
 
 export type Book = {
     title: string;
@@ -15,6 +17,7 @@ export type Book = {
 export const EditBooks = () => {
     const [book, setBook] = useState<Book | null>(null);
     const [error, setError] = useState("");
+    const { t, i18n } = useTranslation();
 
     const fetchBooks = async () => {
         try {
@@ -65,14 +68,18 @@ export const EditBooks = () => {
 
     return (
         <>
+        
             <div className="hamburger-menu-container">
                 <HamburgerMenu />
+                    <div className="translate-button"> 
+                        <TranslateButtons />
+                    </div>
             </div>
             <form onSubmit={handleSubmit} className="form">
                 {book ? (
                     <div className="inputs">
                         <label htmlFor="input-title">
-                            <strong>Title:</strong>
+                            <strong>{t(`title`)}</strong>
                             <input
                                 className="input-title"
                                 value={book.title}
@@ -81,7 +88,7 @@ export const EditBooks = () => {
                             />
                         </label>
                         <label htmlFor="input-authors">
-                            <strong>Authors:</strong>
+                            <strong>{t(`authors`)}:</strong>
                             <input
                                 className="input-authors"
                                 type="text"
@@ -91,7 +98,7 @@ export const EditBooks = () => {
                             />
                         </label>
                         <label htmlFor="input-pageCount">
-                            <strong>Page Count:</strong>
+                            <strong>{t(`pages`)}</strong>
                             <input
                                 className="input-pageCount"
                                 type="text"
@@ -133,9 +140,9 @@ export const EditBooks = () => {
             {book && (
                 <div className="updated-details">
                     <h2>{t(`updatedBookDetails`)}</h2>
-                    <p><strong>Title:</strong> {book.title}</p>
-                    <p><strong>Authors:</strong> {book.authors ? book.authors.join(", ") : "N/A"}</p>
-                    <p><strong>Page Count:</strong> {book.pageCount}</p>
+                    <p><strong>{t(`title`)}</strong> {book.title}</p>
+                    <p><strong>{t(`authors`)}:</strong> {book.authors ? book.authors.join(", ") : "N/A"}</p>
+                    <p><strong>{t(`pages`)}</strong> {book.pageCount}</p>
                     <p><strong>ISBN:</strong> {book.isbn}</p>
                     <p><strong>ID:</strong> {book.id}</p>
                 </div>

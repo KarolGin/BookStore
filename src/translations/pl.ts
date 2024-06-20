@@ -21,8 +21,9 @@ export default {
         "title": "Tytuł:",
         "pages": "Strony:",
         "addProduct": "Dodaj produkt",
-        "preview-new-book": "podgląd nowej książki",
-        "page-count": "liczba stron",
-        "date-added": "data dodania",
+        "preview-new-book": "Podgląd nowej książki",
+        "page-count": "Liczba stron",
+        "date-added": "Data dodania",
+        "authors" : "Autory",
     },
 };
