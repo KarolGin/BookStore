@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { BookType } from "../BookList/BookList";
 import "./BookDetails.scss";
+import { useTranslation } from "react-i18next";
+import { TranslateButtons } from "../TranslateButtons/TranslateButtons";
 interface Params {
   id: string;
   [key: string]: string | undefined;
@@ -9,6 +11,7 @@ interface Params {
 export const BookDetails: React.FC = () => {
   const { id } = useParams<Params>();
   const [book, setBook] = useState<BookType | null>(null);
+  const { t, i18n } = useTranslation();
   const fetchBookDetails = async () => {
     try {
       const res = await fetch(`https://fakeapi.extendsclass.com/books/${id}`);
@@ -26,17 +29,22 @@ export const BookDetails: React.FC = () => {
   }, [id]);
   if (!book) return <div>Loading...</div>;
   return (
+  <div>
+    <div className="translate-button">
+      <TranslateButtons />
+    </div>
     <div className="book-details">
-      <h2>Book Details</h2>
+      <h2>{t(`bookdetails`)}</h2>
       <p>
-        <strong>Title:</strong> {book.title}
+        <strong>{t(`title`)}:</strong> {book.title}
       </p>
       <p>
         <strong>ISBN:</strong> {book.isbn}
       </p>
       <p>
-        <strong>Authors:</strong> {book.authors.join(", ")}
+        <strong>{t(`authors`)}:</strong> {book.authors.join(", ")}
       </p>
+    </div>
     </div>
   );
 };

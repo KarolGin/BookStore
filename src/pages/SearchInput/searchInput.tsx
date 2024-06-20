@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useContext } from "react";
 import "./searchInput.scss";
-import { t } from "i18next";
 import { SearchContext } from "../../hooks/searchContext/searchContext";
+import { useTranslation } from "react-i18next";
 
 export type SearchTag = {
   title: string;
@@ -14,7 +14,7 @@ type Props = {
 }
 
 export const SearchInput = () => {
-
+  const { t, i18n } = useTranslation();
   const {query, setQuery} = useContext(SearchContext);
 
   return (

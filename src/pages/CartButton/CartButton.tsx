@@ -5,14 +5,18 @@ import { Link } from "react-router-dom";
 import "./CartButton.scss"
 import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
 import { useTranslation } from "react-i18next";
+import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
 export const CartBook = () => {
   const { cart } = useContext(BasketBookContext);
   const { t, i18n } = useTranslation();
   return (
     <>
-    <div className="change-lang-button">
+    
+    <div className="change-menu-button">
+    <HamburgerMenu />
     <TranslateButtons />
     </div>
+    
       <Link to="/cart">
         <div className="cart">
           <button className="cart-button">

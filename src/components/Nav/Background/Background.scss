@@ -24,6 +24,12 @@ body {
   margin-left: 40px;
 }
 
+.button-lang {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 5px;
+}
+
 @media (max-width: 768px) {
   .background {
     height: 400px;

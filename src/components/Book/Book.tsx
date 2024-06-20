@@ -1,6 +1,7 @@
 import React from "react";
 import "./Book.scss";
 import { BookType } from "../BookList/BookList";
+import { useTranslation } from "react-i18next";
 interface BookProps extends BookType {
   onShowDetails: () => void;
 }
@@ -9,6 +10,7 @@ export const Book: React.FC<BookProps> = ({
   authors,
   onShowDetails,
 }) => {
+  const { t, i18n } = useTranslation();
   return (
     <div className="book">
       <img
@@ -18,7 +20,7 @@ export const Book: React.FC<BookProps> = ({
       ></img>
       <h3>{title}</h3>
       <p>{authors.join(", ")}</p>
-      <button onClick={onShowDetails}>Show Details</button>
+      <button onClick={onShowDetails}>{t(`showdetails`)}</button>
     </div>
   );
 };
