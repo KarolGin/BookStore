@@ -5,6 +5,7 @@ import "./BookList.scss";
 import { BookSort } from "../BookSort/BookSort";
 import { SearchContext } from "../../hooks/searchContext/searchContext";
 import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 
 export type BookType = {
   id: string;
@@ -19,7 +20,7 @@ export const BookList: React.FC = () => {
   const [filteredBooks, setFilteredBooks] = useState<BookType[]>([]);
   const navigate = useNavigate();
   const [sortBy, setSortBy] = useState("");
-
+  const { t, i18n } = useTranslation();
   const fetchBooks = async () => {
     try {
       const res = await fetch("https://fakeapi.extendsclass.com/books", {
@@ -75,7 +76,7 @@ export const BookList: React.FC = () => {
   return (
     <>
       <div className="counter">
-        Liczba dostępnych pozycji: {filteredBooks.length}
+        {t(`booksshow`)}: {filteredBooks.length}
       </div>
       <BookSort setSortBy={setSortBy} />
       <div className="book-container">

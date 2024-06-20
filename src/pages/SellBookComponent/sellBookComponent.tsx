@@ -5,6 +5,7 @@ import "./sellBookComponent.scss";
 import { CartBook } from "../CartButton/CartButton";
 import { TranslateButtons } from "../../components/TranslateButtons/TranslateButtons";
 import { useTranslation } from "react-i18next";
+import { HamburgerMenu } from "../../components/Nav/HamburgerMenu/HamburgerMenu";
 
 export const SellBookComponent = () => {
     const { books, bookCopies, addToCart, sellBook } = useContext(BasketBookContext);
