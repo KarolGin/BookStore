@@ -61,8 +61,6 @@ export const AddProduct = () => {
         <TranslateButtons />
         </div>
         </div>
-        
-        
         <img src={logo} alt="Logo strony" />
         <span className="container-form">
           <h2 className="add-new-book-text">{t(`add-new-book`)}</h2>
