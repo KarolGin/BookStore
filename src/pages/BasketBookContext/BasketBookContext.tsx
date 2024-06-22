@@ -12,6 +12,7 @@ type BookContextType = {
     handleEdit: (e: ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
     fetchBooks: () => Promise<void>;
+    addBook: (newBook: Book) => Promise<void>;  
 };
 
 export const BasketBookContext = createContext<BookContextType>(
@@ -100,6 +101,28 @@ export const BasketBookContextProvider = ({ children }: Props) => {
         }
     };
 
+    const addBook = async (newBook: Book) => {
+        try {
+            const response = await fetch("https://fakeapi.extendsclass.com/books", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newBook)
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to add book");
+            }
+
+            const addedBook = await response.json();
+            setBooks(prevBooks => [...prevBooks, addedBook]);
+        } catch (error) {
+            console.error("Error adding book:", error);
+            alert("Failed to add book");
+        }
+    };
+
     return (
         <BasketBookContext.Provider
             value={{
@@ -112,7 +135,8 @@ export const BasketBookContextProvider = ({ children }: Props) => {
                 sellBook,
                 handleEdit,
                 handleSubmit,
-                fetchBooks
+                fetchBooks,
+                addBook 
             }}
         >
             {children}
